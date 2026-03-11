@@ -75,7 +75,7 @@ export const UserProvider = ({ children }) => {
     if (res.ok) {
       setToken(data.token);
       setUser(data.user);
-      return { success: true };
+      return { success: true, user: data.user };
     }
     return { success: false, message: data.message };
   };
