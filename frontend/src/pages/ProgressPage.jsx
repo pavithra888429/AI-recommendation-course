@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useUser } from '../context/UserContext';
-import { courses } from '../data/courses';
 import ProgressBar from '../components/ProgressBar';
 import { Trophy, CheckCircle, Book } from 'lucide-react';
 
+const API_URL = 'http://localhost:5000/api';
+
 const ProgressPage = () => {
-  const { progress } = useUser();
+  const { progress, loading: userLoading } = useUser();
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
   
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const res = await fetch(`${API_URL}/courses`);
+        if (res.ok) {
+          const data = await res.json();
+          setCourses(data);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCourses();
+  }, []);
+
   const enrolledCourses = courses.filter(course => progress[course.id]);
+
+  if (loading || userLoading) return <div className="container" style={{ padding: '4rem', textAlign: 'center' }}>Loading your progress...</div>;
 
   return (
     <div className="container">

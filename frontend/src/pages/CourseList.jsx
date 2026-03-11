@@ -1,11 +1,32 @@
-import React, { useState } from 'react';
-import { courses } from '../data/courses';
+import React, { useState, useEffect } from 'react';
+import { useUser } from '../context/UserContext';
 import CourseCard from '../components/CourseCard';
 import { Search, Filter } from 'lucide-react';
 
+const API_URL = 'http://localhost:5000/api';
+
 const CourseList = () => {
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('All');
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const res = await fetch(`${API_URL}/courses`);
+        if (res.ok) {
+          const data = await res.json();
+          setCourses(data);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCourses();
+  }, []);
 
   const categories = ['All', ...new Set(courses.map(c => c.category))];
 
@@ -15,6 +36,8 @@ const CourseList = () => {
     const matchesCategory = category === 'All' || course.category === category;
     return matchesSearch && matchesCategory;
   });
+
+  if (loading) return <div className="container" style={{ padding: '4rem', textAlign: 'center' }}>Loading courses...</div>;
 
   return (
     <div className="container">
