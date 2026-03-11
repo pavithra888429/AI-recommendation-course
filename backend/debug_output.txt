@@ -1,0 +1,11 @@
+--- Debug Start ---
+Total users found: 1
+
+User: pavithra (pavithra.k.ihub@snsgroups.com) ID: 69b18f0c21de6d7f9155297c
+
+Course ID: 1
+Completed Lessons: [null]
+Completed Quizzes: []
+Completed Modules: [null]
+Quiz Scores: {}
+Is Completed: false

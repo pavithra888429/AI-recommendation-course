@@ -1,19 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { courses } from '../data/courses';
 import { useUser } from '../context/UserContext';
 import QuizCard from '../components/QuizCard';
 import { Trophy, ArrowLeft, ArrowRight } from 'lucide-react';
+
+const API_URL = 'http://localhost:5000/api';
 
 const QuizPage = () => {
   const { courseId, moduleId } = useParams();
   const navigate = useNavigate();
   const { completeModule } = useUser();
-  const course = courses.find(c => c.id === parseInt(courseId));
-  const module = course?.modules.find(m => m.id === moduleId);
-
+  const [course, setCourse] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [finished, setFinished] = useState(false);
   const [passed, setPassed] = useState(false);
+
+  useEffect(() => {
+    const fetchCourse = async () => {
+      try {
+        const res = await fetch(`${API_URL}/courses/${courseId}`);
+        if (res.ok) {
+          const data = await res.json();
+          setCourse(data);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCourse();
+  }, [courseId]);
+
+  if (loading) return <div className="container" style={{ padding: '4rem', textAlign: 'center' }}>Loading quiz...</div>;
+
+  const module = course?.modules.find(m => m.id === moduleId);
 
   if (!course || !module) return <div>Quiz not found</div>;
 

@@ -40,15 +40,15 @@ const CourseCard = ({ course }) => {
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
             <Star size={16} fill="var(--accent)" stroke="var(--accent)" />
-            <span>{course.rating}</span>
+            <span>{course.rating || 0}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
             <Users size={16} />
-            <span>{course.students.toLocaleString()}</span>
+            <span>{(course.students || 0).toLocaleString()}</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
             <Clock size={16} />
-            <span>{course.duration}</span>
+            <span>{course.duration || 'N/A'}</span>
           </div>
         </div>
 

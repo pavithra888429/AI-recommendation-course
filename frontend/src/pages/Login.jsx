@@ -8,11 +8,21 @@ const Login = () => {
   const { login } = useUser();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock login
-    login({ name: email.split('@')[0], email });
-    navigate('/onboarding');
+    setError('');
+    const result = await login(email, password);
+    if (result.success) {
+      if (result.user.onboardingComplete) {
+        navigate('/dashboard');
+      } else {
+        navigate('/onboarding');
+      }
+    } else {
+      setError(result.message || 'Login failed');
+    }
   };
 
   return (
@@ -25,6 +35,7 @@ const Login = () => {
       boxShadow: 'var(--shadow-lg)'
     }}>
       <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Welcome Back</h2>
+      {error && <p style={{ color: '#ef4444', textAlign: 'center', marginBottom: '1rem', fontSize: '0.875rem' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '1.5rem' }}>
           <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>Email Address</label>

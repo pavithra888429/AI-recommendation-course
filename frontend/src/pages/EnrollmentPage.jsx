@@ -1,21 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { courses } from '../data/courses';
 import { useUser } from '../context/UserContext';
 import { CheckCircle, ArrowLeft, ShieldCheck, CreditCard } from 'lucide-react';
+
+const API_URL = 'http://localhost:5000/api';
 
 const EnrollmentPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { enrollInCourse, user } = useUser();
-  const course = courses.find(c => c.id === parseInt(id));
-
+  const [course, setCourse] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     phone: '',
     background: 'Student',
     goal: ''
   });
 
+  useEffect(() => {
+    const fetchCourse = async () => {
+      try {
+        const res = await fetch(`${API_URL}/courses/${id}`);
+        if (res.ok) {
+          const data = await res.json();
+          setCourse(data);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCourse();
+  }, [id]);
+
+  if (loading) return <div className="container">Loading...</div>;
   if (!course) return <div className="container">Course not found</div>;
 
   const handleSubmit = (e) => {

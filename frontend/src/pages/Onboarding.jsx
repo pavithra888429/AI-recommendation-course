@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
+import { useEffect } from 'react';
 
 const Onboarding = () => {
   const [interests, setInterests] = useState([]);
   const [level, setLevel] = useState('Beginner');
-  const { completeOnboarding } = useUser();
+  const { completeOnboarding, user } = useUser();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user && user.onboardingComplete) {
+      navigate('/dashboard');
+    }
+  }, [user, navigate]);
 
   const categories = [
     'Full Stack', 'AI & Machine Learning', 'Data Science', 

@@ -9,10 +9,21 @@ const Register = () => {
   const { register } = useUser();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    register({ name, email });
-    navigate('/onboarding');
+    setError('');
+    const result = await register(name, email, password);
+    if (result.success) {
+      if (result.user.onboardingComplete) {
+        navigate('/dashboard');
+      } else {
+        navigate('/onboarding');
+      }
+    } else {
+      setError(result.message || 'Registration failed');
+    }
   };
 
   return (
@@ -25,6 +36,7 @@ const Register = () => {
       boxShadow: 'var(--shadow-lg)'
     }}>
       <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Create Account</h2>
+      {error && <p style={{ color: '#ef4444', textAlign: 'center', marginBottom: '1rem', fontSize: '0.875rem' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '1.5rem' }}>
           <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: '500' }}>Full Name</label>
