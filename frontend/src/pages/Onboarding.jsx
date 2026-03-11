@@ -30,8 +30,8 @@ const Onboarding = () => {
     }
   };
 
-  const handleFinish = () => {
-    completeOnboarding({ interests, level });
+  const handleFinish = async () => {
+    await completeOnboarding({ interests, level });
     navigate('/dashboard');
   };
 

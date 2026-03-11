@@ -196,9 +196,14 @@ export const UserProvider = ({ children }) => {
         body: JSON.stringify({ courseId })
       });
       if (res.ok) {
-        fetchProgress(token);
+        await fetchProgress(token);
+        return true;
       }
-    } catch (err) { console.error(err); }
+      return false;
+    } catch (err) { 
+      console.error(err); 
+      return false;
+    }
   };
 
   const isEnrolled = (courseId) => !!progress[courseId];

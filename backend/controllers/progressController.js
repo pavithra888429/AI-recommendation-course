@@ -92,7 +92,7 @@ const enrollInCourse = async (req, res) => {
   try {
     const { courseId } = req.body;
     let progress = await Progress.findOne({ user: req.user.id, course: courseId });
-    if (progress) return res.status(400).json({ message: 'Already enrolled' });
+    if (progress) return res.status(200).json(progress);
 
     progress = new Progress({ user: req.user.id, course: courseId });
     await progress.save();
