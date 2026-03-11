@@ -3,7 +3,7 @@ import { useUser } from '../context/UserContext';
 import CourseCard from '../components/CourseCard';
 import { Search, Filter } from 'lucide-react';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);

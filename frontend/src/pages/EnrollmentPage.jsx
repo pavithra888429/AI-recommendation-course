@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { CheckCircle, ArrowLeft, ShieldCheck, CreditCard } from 'lucide-react';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
 
 const EnrollmentPage = () => {
   const { id } = useParams();

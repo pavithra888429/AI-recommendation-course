@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import ProgressBar from '../components/ProgressBar';
 import { Sparkles, Trophy, BookOpen, ArrowRight } from 'lucide-react';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
 
 const Dashboard = () => {
   const { user, progress } = useUser();

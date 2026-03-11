@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 const UserContext = createContext();
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
