@@ -37,9 +37,9 @@ const EnrollmentPage = () => {
   if (loading) return <div className="container">Loading...</div>;
   if (!course) return <div className="container">Course not found</div>;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    enrollInCourse(course.id);
+    await enrollInCourse(course.id);
     navigate(`/learn/${course.id}`);
   };
 
