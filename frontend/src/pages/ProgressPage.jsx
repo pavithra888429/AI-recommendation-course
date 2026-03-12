@@ -41,10 +41,34 @@ const ProgressPage = () => {
       {enrolledCourses.length > 0 ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           {enrolledCourses.map(course => {
-            const courseProgress = progress[course.id];
-            const totalLessons = course.modules.reduce((acc, m) => acc + m.lessons.length, 0);
-            const completedLessons = courseProgress.completedLessons?.length || 0;
-            const percentage = (completedLessons / totalLessons) * 100;
+            const courseProgress = progress[course.id] || { completedLessons: [], completedQuizzes: [], completedModules: [] };
+            
+            const allItems = [];
+            if (course.modules) {
+              course.modules.forEach((mod) => {
+                if (mod.lessons) {
+                  mod.lessons.forEach((les) => {
+                    allItems.push({ type: 'video', id: les.id });
+                    if (les.quizzes && les.quizzes.length > 0) allItems.push({ type: 'quiz', id: les.id });
+                  });
+                }
+                if (mod.quiz) allItems.push({ type: 'module-quiz', mId: mod.id });
+              });
+            }
+
+            const isCompletedItem = (item) => {
+              if (item.type === 'video') return courseProgress.completedLessons?.includes(item.id);
+              if (item.type === 'quiz') return courseProgress.completedQuizzes?.includes(item.id);
+              if (item.type === 'module-quiz') return courseProgress.completedModules?.includes(item.mId);
+              return false;
+            };
+
+            const completedCount = allItems.filter(isCompletedItem).length;
+            const totalCount = allItems.length;
+            const percentage = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
+            const isCourseCompleted = courseProgress.isCompleted || percentage === 100;
+
+            const totalModules = course.modules?.length || 0;
 
             return (
               <div key={course.id} className="card" style={{ padding: '2rem' }}>
@@ -59,19 +83,50 @@ const ProgressPage = () => {
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
                       <div style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#f8fafc', borderRadius: 'var(--radius)' }}>
                         <Book size={20} color="var(--primary)" style={{ marginBottom: '0.5rem' }} />
-                        <div style={{ fontWeight: 'bold' }}>{totalLessons}</div>
-                        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Total Lessons</div>
+                        <div style={{ fontWeight: 'bold' }}>{totalCount}</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Total Activities</div>
                       </div>
                       <div style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#f8fafc', borderRadius: 'var(--radius)' }}>
                         <CheckCircle size={20} color="var(--secondary)" style={{ marginBottom: '0.5rem' }} />
-                        <div style={{ fontWeight: 'bold' }}>{completedLessons}</div>
+                        <div style={{ fontWeight: 'bold' }}>{completedCount}</div>
                         <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Completed</div>
                       </div>
                       <div style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#f8fafc', borderRadius: 'var(--radius)' }}>
                         <Trophy size={20} color="var(--accent)" style={{ marginBottom: '0.5rem' }} />
-                        <div style={{ fontWeight: 'bold' }}>{courseProgress.completedModules?.length || 0}</div>
+                        <div style={{ fontWeight: 'bold' }}>{courseProgress.completedModules?.length || 0} / {totalModules}</div>
                         <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Modules Done</div>
                       </div>
+                    </div>
+
+                    <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'flex-start' }}>
+                      {isCourseCompleted ? (
+                        <a 
+                          href={`/certificate/${course.id}`} 
+                          className="btn-primary" 
+                          style={{ 
+                            textDecoration: 'none', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: '0.5rem',
+                            backgroundColor: 'var(--secondary)'
+                          }}
+                        >
+                          <Trophy size={18} /> Claim Certificate
+                        </a>
+                      ) : (
+                        <a 
+                          href={`/learn/${course.id}`} 
+                          className="btn-primary" 
+                          style={{ 
+                            textDecoration: 'none', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: '0.5rem'
+                          }}
+                        >
+                          Continue Learning
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
