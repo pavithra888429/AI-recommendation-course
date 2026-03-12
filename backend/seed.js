@@ -585,6 +585,921 @@ const coursesData = [
         }]
       }
     ]
+  },
+  {
+    id: 5,
+    title: "Data Science Fundamentals",
+    description: "Learn how to collect, analyze, visualize and build predictive models using data science techniques and tools.",
+    category: "Data Science",
+    level: "Beginner",
+    instructor: "Dr. Laura Mitchell",
+    duration: "55h",
+    image: "/data_science_cover.png",
+    tags: ["Data Science", "Python", "Machine Learning", "Statistics", "Data Analysis"],
+    modules: [
+      {
+        id: "m1",
+        title: "Introduction to Data Science",
+        lessons: [{
+          id: "l_m1",
+          title: "Understanding Data Science",
+          content: "\nData Science is the process of extracting useful insights and knowledge from data.\n\nIt combines multiple fields:\nStatistics\nProgramming\nDomain Knowledge\nMachine Learning\n\nData scientists analyze large datasets to discover patterns, trends and predictions.\n",
+          example: "\nExample: A retail company collects customer purchase data. Data scientist analyzes customer age, purchase history, and spending behavior to predict which customers are likely to buy a new product.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What is the main goal of Data Science?",
+          options: ["Storing data", "Extracting insights from data", "Designing websites", "Managing networks"],
+          answer: 1,
+          explanation: "Data Science focuses on analyzing data to extract meaningful insights and predictions."
+        }
+      },
+      {
+        id: "m2",
+        title: "Data Science Workflow",
+        lessons: [{
+          id: "l_m2",
+          title: "The Standard Workflow",
+          content: "\nA typical Data Science project follows several steps:\n1 Problem Definition\n2 Data Collection\n3 Data Cleaning\n4 Data Analysis\n5 Model Building\n6 Model Evaluation\n7 Deployment\n",
+          example: "\nWorkflow for predicting house prices: Define problem, collect dataset, clean data (remove missing values), analyze features (size, location), train model, evaluate accuracy, deploy system.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which step removes incorrect or missing data?",
+          options: ["Data cleaning", "Data deployment", "Data visualization", "Model training"],
+          answer: 0,
+          explanation: "Data cleaning removes missing values and incorrect data."
+        }
+      },
+      {
+        id: "m3",
+        title: "Python for Data Science",
+        lessons: [{
+          id: "l_m3",
+          title: "Why Python for Data Science?",
+          content: "\nPython is the most popular programming language used in data science. Important Python libraries: NumPy, Pandas, Matplotlib, Scikit-learn.\n",
+          example: "\nimport pandas as pd \ndata = {\"name\":[\"Alice\",\"Bob\",\"Charlie\"], \"age\":[25,30,35]} \ndf = pd.DataFrame(data)\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which Python library is mainly used for data manipulation?",
+          options: ["Pandas", "TensorFlow", "React", "Express"],
+          answer: 0,
+          explanation: "Pandas is widely used for data manipulation and analysis."
+        }
+      },
+      {
+        id: "m4",
+        title: "Data Collection",
+        lessons: [{
+          id: "l_m4",
+          title: "Gathering Raw Data",
+          content: "\nData collection involves gathering raw data from different sources such as Databases, APIs, CSV files, and Web scraping.\n",
+          example: "\nExample: Collect weather data using API. GET https://api.weather.com/data. Response contains temperature and humidity.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which source can provide real-time data?",
+          options: ["APIs", "Printed books", "Manual notes", "Static images"],
+          answer: 0,
+          explanation: "APIs allow systems to collect real-time data from services."
+        }
+      },
+      {
+        id: "m5",
+        title: "Data Cleaning",
+        lessons: [{
+          id: "l_m5",
+          title: "Essential Cleaning Steps",
+          content: "\nData cleaning includes handling missing values, removing duplicates, and correcting incorrect entries.\n",
+          example: "\nHandling NULL values and removing duplicate rows for users 'John' and 'Mary'.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What is the purpose of data cleaning?",
+          options: ["Increase errors", "Improve data quality", "Reduce dataset size", "Delete all data"],
+          answer: 1,
+          explanation: "Data cleaning improves the accuracy and quality of datasets."
+        }
+      },
+      {
+        id: "m6",
+        title: "Exploratory Data Analysis (EDA)",
+        lessons: [{
+          id: "l_m6",
+          title: "Visualizing Distributions",
+          content: "\nEDA helps understand the dataset through visualization and summary statistics using Histograms, Box plots, and Scatter plots.\n",
+          example: "\nimport matplotlib.pyplot as plt\nages = [22,25,30,35,40]\nplt.hist(ages)\nplt.show()\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which chart shows data distribution?",
+          options: ["Histogram", "Pie chart", "Bar chart", "Line chart"],
+          answer: 0,
+          explanation: "Histograms display the distribution of numerical data."
+        }
+      },
+      {
+        id: "m7",
+        title: "Statistics for Data Science",
+        lessons: [{
+          id: "l_m7",
+          title: "Core Statistical Concepts",
+          content: "\nKey concepts: Mean (average), Median (middle), Mode (frequent), and Standard deviation (variation).\n",
+          example: "\nMean of values 10, 20, 30: (10 + 20 + 30) / 3 = 20.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What does mean represent?",
+          options: ["Largest value", "Average value", "Smallest value", "Total count"],
+          answer: 1,
+          explanation: "Mean represents the average value of a dataset."
+        }
+      },
+      {
+        id: "m8",
+        title: "Machine Learning Basics",
+        lessons: [{
+          id: "l_m8",
+          title: "Understanding Learning Patterns",
+          content: "\nMachine Learning allows systems to learn patterns from data. Types: Supervised, Unsupervised, and Reinforcement Learning.\n",
+          example: "\nModel learns the relationship between study hours and exam scores to predict outcomes.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which ML type uses labeled data?",
+          options: ["Supervised Learning", "Unsupervised Learning", "Reinforcement Learning", "Deep Learning"],
+          answer: 0,
+          explanation: "Supervised learning uses labeled datasets."
+        }
+      },
+      {
+        id: "m9",
+        title: "Data Visualization",
+        lessons: [{
+          id: "l_m9",
+          title: "Communicating Insights",
+          content: "\nData visualization helps communicate insights clearly using tools like Matplotlib and Seaborn.\n",
+          example: "\nimport matplotlib.pyplot as plt\nsales = [100,150,200]\nplt.plot(sales)\nplt.show()\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which library is used for visualization in Python?",
+          options: ["Matplotlib", "Express", "Django", "Spring"],
+          answer: 0,
+          explanation: "Matplotlib is a popular Python visualization library."
+        }
+      },
+      {
+        id: "m10",
+        title: "Building a Data Science Project",
+        lessons: [{
+          id: "l_m10",
+          title: "From Concept to Deployment",
+          content: "\nA data science project combines all stages: collection, cleaning, EDA, training, evaluation, and deployment.\n",
+          example: "\nMovie recommendation system project: input user watch history, output recommended movies.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What is the final goal of a data science project?",
+          options: ["Collect data", "Store data", "Generate useful predictions", "Delete data"],
+          answer: 2,
+          explanation: "The goal is to generate insights or predictions that help decision-making."
+        }
+      }
+    ]
+  },
+  {
+    id: 6,
+    title: "Cyber Security Fundamentals",
+    description: "Learn how to protect systems, networks and data from cyber threats using modern security practices and tools.",
+    category: "Cyber Security",
+    level: "Beginner",
+    instructor: "David Anderson",
+    duration: "50h",
+    image: "/cyber_security_cover.png",
+    tags: ["Cyber Security", "Ethical Hacking", "Network Security", "Encryption", "Security"],
+    modules: [
+      {
+        id: "m1",
+        title: "Introduction to Cyber Security",
+        lessons: [{
+          id: "l_cs_m1",
+          title: "Understanding Cyber Security",
+          content: "\nCyber Security refers to protecting computers, networks and data from unauthorized access or attacks. Common areas: Network, Application, Information, and Cloud Security.\n",
+          example: "\nEncryption and access control protect customer data in a database from hackers who might steal credit card details.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What is the main goal of cyber security?",
+          options: ["Increase internet speed", "Protect systems and data", "Build websites", "Store data"],
+          answer: 1,
+          explanation: "Cyber security focuses on protecting systems, networks and data from attacks."
+        }
+      },
+      {
+        id: "m2",
+        title: "Types of Cyber Threats",
+        lessons: [{
+          id: "l_cs_m2",
+          title: "Malicious Attempts",
+          content: "\nCyber threats include Malware, Phishing, Ransomware, and DDoS attacks. These are attempts to damage or access systems.\n",
+          example: "\nA phishing email pretending to be from a bank redirects users to a fake login page to steal passwords.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which attack tricks users into revealing sensitive information?",
+          options: ["Malware", "Phishing", "Firewall", "Encryption"],
+          answer: 1,
+          explanation: "Phishing attacks trick users into sharing passwords or personal information."
+        }
+      },
+      {
+        id: "m3",
+        title: "Network Security",
+        lessons: [{
+          id: "l_cs_m3",
+          title: "Protecting Communications",
+          content: "\nNetwork security protects communication between devices using Firewalls, IDS, and VPNs.\n",
+          example: "\nFirewall rule: Allow traffic from port 80 (HTTP) but block traffic from unknown sources to prevent unauthorized access.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which tool monitors and controls network traffic?",
+          options: ["Firewall", "Spreadsheet", "Printer", "Database"],
+          answer: 0,
+          explanation: "Firewalls monitor and control incoming and outgoing network traffic."
+        }
+      },
+      {
+        id: "m4",
+        title: "Authentication and Access Control",
+        lessons: [{
+          id: "l_cs_m4",
+          title: "Verifying Identity",
+          content: "\nAuthentication verifies identity via passwords, biometrics, or 2FA. Access control ensures only authorized users reach resources.\n",
+          example: "\nA login process using both a password and an OTP sent to a phone ensures higher security.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which method adds an extra security layer during login?",
+          options: ["2FA", "Firewall", "VPN", "DNS"],
+          answer: 0,
+          explanation: "Two-Factor Authentication requires an additional verification step."
+        }
+      },
+      {
+        id: "m5",
+        title: "Encryption and Cryptography",
+        lessons: [{
+          id: "l_cs_m5",
+          title: "Secure Data Formats",
+          content: "\nEncryption converts readable data into an unreadable format. Only authorized users with the key can decrypt it using symmetric or asymmetric methods.\n",
+          example: "\nPlain text 'Hello' becomes unreadable 'U2FsdGVkX1+abX3k2j' through encryption, protecting it during storage.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What is the purpose of encryption?",
+          options: ["Increase file size", "Hide data", "Convert data into secure format", "Delete data"],
+          answer: 2,
+          explanation: "Encryption converts data into a secure format to prevent unauthorized access."
+        }
+      },
+      {
+        id: "m6",
+        title: "Malware and Viruses",
+        lessons: [{
+          id: "l_cs_m6",
+          title: "Harmful Software",
+          content: "\nMalware like viruses, worms, Trojans, and Ransomware is designed to harm systems and often spreads through unsafe downloads.\n",
+          example: "\nDownloading cracked software might install hidden spyware that steals browser passwords.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which type of malware locks files and demands payment?",
+          options: ["Virus", "Spyware", "Ransomware", "Adware"],
+          answer: 2,
+          explanation: "Ransomware encrypts files and demands payment to restore access."
+        }
+      },
+      {
+        id: "m7",
+        title: "Ethical Hacking",
+        lessons: [{
+          id: "l_cs_m7",
+          title: "Legal System Testing",
+          content: "\nEthical hackers use hacking techniques legally to test and improve system security via penetration testing and auditing.\n",
+          example: "\nTesting a login system for SQL injection or weak passwords and reporting findings to developers.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What is the purpose of ethical hacking?",
+          options: ["Steal data", "Test and improve security", "Spread malware", "Break systems"],
+          answer: 1,
+          explanation: "Ethical hacking identifies vulnerabilities to improve system security."
+        }
+      },
+      {
+        id: "m8",
+        title: "Web Application Security",
+        lessons: [{
+          id: "l_cs_m8",
+          title: "Securing App Inputs",
+          content: "\nCommon web vulnerabilities include SQL Injection, XSS, and CSRF. Developers must secure inputs and validate data.\n",
+          example: "\nMalicious SQL queries like '' OR '1'='1' can bypass login authentication if validation is missing.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which attack injects malicious SQL queries?",
+          options: ["XSS", "SQL Injection", "Phishing", "Malware"],
+          answer: 1,
+          explanation: "SQL Injection inserts malicious SQL code into database queries."
+        }
+      },
+      {
+        id: "m9",
+        title: "Security Monitoring",
+        lessons: [{
+          id: "l_cs_m9",
+          title: "Threat Detection",
+          content: "\nMonitoring tools like SIEM track system activity to detect threats and suspicious activities early.\n",
+          example: "\nDetecting and blocking an IP automatically after 1000 failed login attempts.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What is the purpose of security monitoring?",
+          options: ["Delete logs", "Detect threats", "Increase storage", "Slow network"],
+          answer: 1,
+          explanation: "Security monitoring helps detect suspicious activities and threats."
+        }
+      },
+      {
+        id: "m10",
+        title: "Cyber Security Best Practices",
+        lessons: [{
+          id: "l_cs_m10",
+          title: "Maintenance and Training",
+          content: "\nBest practices include strong passwords, regular software updates, data backups, and employee security training.\n",
+          example: "\nA strong password policy requiring 12+ characters, symbols, and rotation every 90 days.\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which practice improves account security?",
+          options: ["Weak passwords", "Strong passwords", "Shared passwords", "Default passwords"],
+          answer: 1,
+          explanation: "Strong passwords significantly improve account security."
+        }
+      }
+    ]
+  },
+  {
+    id: 7,
+    title: "Python Programming Fundamentals",
+    description: "Learn Python programming from basics to advanced concepts including data structures, functions, file handling and libraries.",
+    category: "Programming",
+    level: "Beginner",
+    instructor: "James Wilson",
+    duration: "45h",
+    image: "/python_cover.png",
+    tags: ["Python", "Programming", "Automation", "Data", "Scripting"],
+    modules: [
+      {
+        id: "m1",
+        title: "Introduction to Python",
+        lessons: [{
+          id: "l_py_m1",
+          title: "What is Python?",
+          content: "\nPython is a high-level programming language known for its simplicity and readability. It is widely used in Web development, Data science, Automation, AI, and Machine Learning.\n",
+          example: "\nprint(\"Hello World\")\n\nOutput: Hello World\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Python is known for its?",
+          options: ["Complex syntax", "Simple and readable syntax", "Only web development", "Only mobile apps"],
+          answer: 1,
+          explanation: "Python is famous for its simple and readable syntax."
+        }
+      },
+      {
+        id: "m2",
+        title: "Python Variables and Data Types",
+        lessons: [{
+          id: "l_py_m2",
+          title: "Storing Data",
+          content: "\nVariables store data values. Common types: Integer (int), Floating point (float), String (str), and Boolean (bool). Type declaration is not required.\n",
+          example: "\nname = \"Alice\"\nage = 25\nheight = 5.7\nis_student = True\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which data type stores text?",
+          options: ["int", "float", "str", "bool"],
+          answer: 2,
+          explanation: "Strings (str) are used to store text values."
+        }
+      },
+      {
+        id: "m3",
+        title: "Python Operators",
+        lessons: [{
+          id: "l_py_m3",
+          title: "Performing Operations",
+          content: "\nOperators perform operations on values. Types: Arithmetic (+, -, *, /), Comparison (>, <, ==), and Logical (and, or, not).\n",
+          example: "\na = 10\nb = 5\nprint(a + b)\nprint(a > b)\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which operator is used for addition?",
+          options: ["-", "+", "*", "/"],
+          answer: 1,
+          explanation: "+ is the arithmetic operator used for addition."
+        }
+      },
+      {
+        id: "m4",
+        title: "Conditional Statements",
+        lessons: [{
+          id: "l_py_m4",
+          title: "Decision Making",
+          content: "\nConditional statements (if, elif, else) allow programs to evaluate conditions and execute code accordingly.\n",
+          example: "\nage = 18\nif age >= 18:\n    print(\"Adult\")\nelse:\n    print(\"Minor\")\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which keyword checks a condition in Python?",
+          options: ["loop", "if", "case", "switch"],
+          answer: 1,
+          explanation: "The 'if' keyword evaluates conditions in Python."
+        }
+      },
+      {
+        id: "m5",
+        title: "Loops in Python",
+        lessons: [{
+          id: "l_py_m5",
+          title: "Repeating Tasks",
+          content: "\nLoops (for, while) allow repeating tasks and are essential for processing collections of data.\n",
+          example: "\nfor i in range(5):\n    print(i)\nOutput: 0 1 2 3 4\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which loop is commonly used for iterating over sequences?",
+          options: ["while", "for", "switch", "case"],
+          answer: 1,
+          explanation: "The for loop is commonly used to iterate through sequences."
+        }
+      },
+      {
+        id: "m6",
+        title: "Python Lists",
+        lessons: [{
+          id: "l_py_m6",
+          title: "Ordered Collections",
+          content: "\nLists store multiple values in one variable. They are ordered, mutable, and allow duplicates. Common methods: append(), remove(), sort().\n",
+          example: "\nnumbers = [1,2,3,4]\nnumbers.append(5)\nprint(numbers)\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which method adds an item to a list?",
+          options: ["add()", "append()", "insertItem()", "push()"],
+          answer: 1,
+          explanation: "append() adds a new element to the end of a list."
+        }
+      },
+      {
+        id: "m7",
+        title: "Python Dictionaries",
+        lessons: [{
+          id: "l_py_m7",
+          title: "Key-Value Pairs",
+          content: "\nDictionaries store data as key-value pairs, making them ideal for structured data like profiles or API responses.\n",
+          example: "\nstudent = {\"name\":\"John\", \"age\":21}\nprint(student[\"name\"])\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What structure stores key-value pairs?",
+          options: ["List", "Tuple", "Dictionary", "Set"],
+          answer: 2,
+          explanation: "Dictionaries store data using key-value pairs."
+        }
+      },
+      {
+        id: "m8",
+        title: "Functions in Python",
+        lessons: [{
+          id: "l_py_m8",
+          title: "Reusable Code Blocks",
+          content: "\nFunctions organize code and enable reuse. Defined with 'def', they can accept arguments and return values.\n",
+          example: "\ndef greet(name):\n    return \"Hello \" + name\nprint(greet(\"Alice\"))\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which keyword defines a function?",
+          options: ["function", "define", "def", "func"],
+          answer: 2,
+          explanation: "The 'def' keyword defines a function in Python."
+        }
+      },
+      {
+        id: "m9",
+        title: "File Handling",
+        lessons: [{
+          id: "l_py_m9",
+          title: "Reading and Writing Files",
+          content: "\nFile handling (open, read, write, close) allows programs to work with persistent stored data.\n",
+          example: "\nfile = open(\"data.txt\",\"r\")\ncontent = file.read()\nprint(content)\nfile.close()\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which function opens a file in Python?",
+          options: ["read()", "open()", "load()", "file()"],
+          answer: 1,
+          explanation: "The open() function is used to open files in Python."
+        }
+      },
+      {
+        id: "m10",
+        title: "Python Libraries",
+        lessons: [{
+          id: "l_py_m10",
+          title: "Extending Capabilities",
+          content: "\nPython's ecosystem includes NumPy for math, Pandas for analysis, Matplotlib for charts, and Requests for API calls.\n",
+          example: "\nimport requests\nresponse = requests.get(\"https://api.github.com\")\nprint(response.status_code)\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which library is used for data analysis?",
+          options: ["Pandas", "React", "Spring", "Laravel"],
+          answer: 0,
+          explanation: "Pandas is widely used for data analysis in Python."
+        }
+      }
+    ]
+  },
+  {
+    id: 8,
+    title: "JavaScript Programming Fundamentals",
+    description: "Learn JavaScript from basics to advanced concepts including DOM manipulation, events, asynchronous programming and modern ES6 features.",
+    category: "Programming",
+    level: "Beginner",
+    instructor: "Daniel Roberts",
+    duration: "48h",
+    image: "/javascript_cover.png",
+    tags: ["JavaScript", "Web Development", "Frontend", "Programming"],
+    modules: [
+      {
+        id: "m1",
+        title: "Introduction to JavaScript",
+        lessons: [{
+          id: "l_js_m1",
+          title: "The Language of the Web",
+          content: "\nJavaScript is a programming language used to create interactive web pages. It is one of the core technologies of the web along with HTML and CSS.\n",
+          example: "\nconsole.log(\"Hello World\")\n\nOutput in browser console: Hello World\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Where does JavaScript mainly run?",
+          options: ["Database", "Browser", "Printer", "Router"],
+          answer: 1,
+          explanation: "JavaScript primarily runs inside web browsers."
+        }
+      },
+      {
+        id: "m2",
+        title: "Variables and Data Types",
+        lessons: [{
+          id: "l_js_m2",
+          title: "Declaring and Using Variables",
+          content: "\nJavaScript provides three ways to declare variables: var, let, and const. Common data types include String, Number, Boolean, Object, and Array.\n",
+          example: "\nlet name = \"Alice\"\nconst age = 25\nlet isStudent = true\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which keyword declares a constant variable?",
+          options: ["var", "let", "const", "define"],
+          answer: 2,
+          explanation: "const declares variables whose values cannot be reassigned."
+        }
+      },
+      {
+        id: "m3",
+        title: "Operators in JavaScript",
+        lessons: [{
+          id: "l_js_m3",
+          title: "Logic and Arithmetic",
+          content: "\nOperators perform operations on variables and values. Types include Arithmetic, Comparison (==, ===), Logical (&&, ||), and Assignment.\n",
+          example: "\nlet a = 10\nlet b = 5\nconsole.log(a + b)\nconsole.log(a > b)\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which operator checks equality?",
+          options: ["=", "==", "+=", "/"],
+          answer: 1,
+          explanation: "== compares two values for equality."
+        }
+      },
+      {
+        id: "m4",
+        title: "Conditional Statements",
+        lessons: [{
+          id: "l_js_m4",
+          title: "Making Decisions",
+          content: "\nConditional statements (if, else, else if, switch) allow programs to make decisions by evaluating conditions to true or false.\n",
+          example: "\nlet age = 18\nif(age >= 18){\nconsole.log(\"Adult\")\n}else{\nconsole.log(\"Minor\")\n}\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which keyword checks a condition?",
+          options: ["if", "loop", "case", "function"],
+          answer: 0,
+          explanation: "The if statement evaluates a condition."
+        }
+      },
+      {
+        id: "m5",
+        title: "Loops in JavaScript",
+        lessons: [{
+          id: "l_js_m5",
+          title: "Repeating Execution",
+          content: "\nLoops (for, while, do while) execute code repeatedly and are essential for processing arrays and repeated tasks.\n",
+          example: "\nfor(let i=0;i<5;i++){\nconsole.log(i)\n}\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which loop is commonly used for iteration?",
+          options: ["switch", "for", "case", "try"],
+          answer: 1,
+          explanation: "The for loop is commonly used to repeat code."
+        }
+      },
+      {
+        id: "m6",
+        title: "Functions in JavaScript",
+        lessons: [{
+          id: "l_js_m6",
+          title: "Building Blocks of Code",
+          content: "\nFunctions are reusable blocks of code that can accept parameters and return values. Support for regular and arrow functions.\n",
+          example: "\nfunction greet(name){ return \"Hello \" + name; }\nconsole.log(greet(\"John\"))\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which keyword defines a function?",
+          options: ["func", "function", "define", "method"],
+          answer: 1,
+          explanation: "The function keyword defines a function in JavaScript."
+        }
+      },
+      {
+        id: "m7",
+        title: "Arrays and Objects",
+        lessons: [{
+          id: "l_js_m7",
+          title: "Complex Data Structures",
+          content: "\nArrays store multiple values in a list, while Objects store key-value pairs. Both are widely used in web applications.\n",
+          example: "\nlet fruits = [\"apple\",\"banana\"];\nlet user = { name:\"Alice\", age:25 };\nconsole.log(user.name);\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which structure stores key-value pairs?",
+          options: ["Array", "Object", "Loop", "Function"],
+          answer: 1,
+          explanation: "Objects store data as key-value pairs."
+        }
+      },
+      {
+        id: "m8",
+        title: "DOM Manipulation",
+        lessons: [{
+          id: "l_js_m8",
+          title: "Interacting with HTML",
+          content: "\nThe DOM (Document Object Model) allows JavaScript to interact with HTML, enabling developers to change text, styles, and elements dynamically.\n",
+          example: "\nconst heading = document.getElementById(\"title\");\nheading.textContent = \"Welcome to my website\";\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which method selects element by id?",
+          options: ["queryAll", "getElementById", "selectId", "findElement"],
+          answer: 1,
+          explanation: "getElementById selects elements using the id attribute."
+        }
+      },
+      {
+        id: "m9",
+        title: "Events in JavaScript",
+        lessons: [{
+          id: "l_js_m9",
+          title: "Responding to Actions",
+          content: "\nEvents (click, submit, keydown) allow web pages to respond to user actions via event listeners.\n",
+          example: "\nconst btn = document.getElementById(\"btn\");\nbtn.addEventListener(\"click\",()=>{ alert(\"Button clicked\"); });\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which event triggers when user clicks an element?",
+          options: ["hover", "click", "submit", "focus"],
+          answer: 1,
+          explanation: "The click event triggers when the user clicks an element."
+        }
+      },
+      {
+        id: "m10",
+        title: "Asynchronous JavaScript",
+        lessons: [{
+          id: "l_js_m10",
+          title: "Async/Await and Promises",
+          content: "\nAsynchronous programming (Promises, Async/Await) allows tasks to run without blocking, which is essential for working with APIs.\n",
+          example: "\nasync function getData(){\nlet response = await fetch(\"https://api.example.com/data\");\nlet data = await response.json();\nconsole.log(data);\n}\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which keyword waits for a promise to resolve?",
+          options: ["wait", "await", "pause", "hold"],
+          answer: 1,
+          explanation: "await pauses execution until the promise resolves."
+        }
+      }
+    ]
+  },
+  {
+    id: 9,
+    title: "React.js Fundamentals",
+    description: "Learn React.js to build modern user interfaces using components, hooks, routing and state management.",
+    category: "Frontend Development",
+    level: "Beginner",
+    instructor: "Sophia Martinez",
+    duration: "52h",
+    image: "/ai_cover.png", // Placeholder image since quota was reached
+    tags: ["React", "Frontend", "JavaScript", "UI Development"],
+    modules: [
+      {
+        id: "m1",
+        title: "Introduction to React",
+        lessons: [{
+          id: "l_re_m1",
+          title: "The Logic of React",
+          content: "\nReact is a JavaScript library used to build user interfaces. Key features include component-based architecture, virtual DOM, and a large ecosystem.\n",
+          example: "\nfunction App(){ return <h1>Hello React</h1>; } export default App;\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Who developed React?",
+          options: ["Google", "Facebook", "Microsoft", "Amazon"],
+          answer: 1,
+          explanation: "React was developed by Facebook."
+        }
+      },
+      {
+        id: "m2",
+        title: "JSX in React",
+        lessons: [{
+          id: "l_re_m2",
+          title: "JavaScript XML",
+          content: "\nJSX stands for JavaScript XML. It allows developers to write HTML-like syntax inside JavaScript, making UI code easier to read.\n",
+          example: "\nconst element = <h1>Welcome to React</h1>;\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What does JSX stand for?",
+          options: ["Java Syntax Extension", "JavaScript XML", "JavaScript Example", "JSON Extension"],
+          answer: 1,
+          explanation: "JSX stands for JavaScript XML."
+        }
+      },
+      {
+        id: "m3",
+        title: "React Components",
+        lessons: [{
+          id: "l_re_m3",
+          title: "Reusable UI Pieces",
+          content: "\nComponents are the building blocks of React. Modern apps mostly use functional components.\n",
+          example: "\nfunction Welcome(){ return <h2>Welcome User</h2>; }\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What are React applications built from?",
+          options: ["Functions", "Components", "Loops", "Modules"],
+          answer: 1,
+          explanation: "React apps are built using reusable components."
+        }
+      },
+      {
+        id: "m4",
+        title: "Props in React",
+        lessons: [{
+          id: "l_re_m4",
+          title: "Passing Data",
+          content: "\nProps (properties) allow passing data between components, making them dynamic and reusable.\n",
+          example: "\nfunction Greeting(props){ return <h1>Hello {props.name}</h1>; }\n<Greeting name=\"John\" />\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Props are used to?",
+          options: ["Store files", "Pass data between components", "Create loops", "Install packages"],
+          answer: 1,
+          explanation: "Props allow passing data from parent to child components."
+        }
+      },
+      {
+        id: "m5",
+        title: "State in React",
+        lessons: [{
+          id: "l_re_m5",
+          title: "Dynamic Component Data",
+          content: "\nState stores dynamic data. When state changes, React re-renders the component automatically.\n",
+          example: "\nimport {useState} from \"react\";\nfunction Counter(){ const [count,setCount] = useState(0); return <button onClick={()=>setCount(count+1)}>{count}</button>; }\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which hook manages component state?",
+          options: ["useState", "useEffect", "useRoute", "useDOM"],
+          answer: 0,
+          explanation: "useState is used to manage state in functional components."
+        }
+      },
+      {
+        id: "m6",
+        title: "React Hooks",
+        lessons: [{
+          id: "l_re_m6",
+          title: "Simplified Management",
+          content: "\nHooks allow functional components to use React features like state and lifecycle (useState, useEffect, etc.).\n",
+          example: "\nimport {useEffect} from \"react\";\nuseEffect(()=>{ console.log(\"Component mounted\"); },[]);\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which hook handles side effects?",
+          options: ["useState", "useEffect", "useData", "useRouter"],
+          answer: 1,
+          explanation: "useEffect handles side effects such as API calls."
+        }
+      },
+      {
+        id: "m7",
+        title: "Handling Events",
+        lessons: [{
+          id: "l_re_m7",
+          title: "User Interactions",
+          content: "\nReact handles events using camelCase syntax (onClick, onChange, onSubmit).\n",
+          example: "\nfunction Button(){ return <button onClick={()=>alert(\"Clicked\")}>Click Me</button>; }\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which event handles button click?",
+          options: ["onclick", "onClick", "clickEvent", "buttonClick"],
+          answer: 1,
+          explanation: "React uses onClick for click events."
+        }
+      },
+      {
+        id: "m8",
+        title: "React Router",
+        lessons: [{
+          id: "l_re_m8",
+          title: "Navigation in SPAs",
+          content: "\nReact Router enables navigation between pages in a Single Page Application without refreshes.\n",
+          example: "\nimport {BrowserRouter,Routes,Route} from \"react-router-dom\";\n<BrowserRouter><Routes><Route path=\"/\" element={<Home/>}/></Routes></BrowserRouter>\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which library enables routing in React?",
+          options: ["react-router-dom", "express", "next-router", "vue-router"],
+          answer: 0,
+          explanation: "react-router-dom enables navigation between pages."
+        }
+      },
+      {
+        id: "m9",
+        title: "Fetching Data from APIs",
+        lessons: [{
+          id: "l_re_m9",
+          title: "API Communication",
+          content: "\nReact apps use fetch or axios within useEffect to retrieve data from backend servers.\n",
+          example: "\nuseEffect(()=>{ fetch(\"https://api.example.com/users\").then(res=>res.json()); },[]);\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "Which function is commonly used to call APIs?",
+          options: ["fetch", "print", "console", "render"],
+          answer: 0,
+          explanation: "fetch is used to retrieve data from APIs."
+        }
+      },
+      {
+        id: "m10",
+        title: "Building a React Project",
+        lessons: [{
+          id: "l_re_m10",
+          title: "Practical Application",
+          content: "\nProjects like Todo apps or dashboards help practice React concepts in real-world scenarios.\n",
+          example: "\nfunction Todo({task}){ return <li>{task}</li>; }\n",
+          quizzes: []
+        }],
+        quiz: {
+          question: "What is a major benefit of React components?",
+          options: ["Reusability", "Slower performance", "Large files", "No structure"],
+          answer: 0,
+          explanation: "Components allow reusable UI elements."
+        }
+      }
+    ]
   }
 ];
 
