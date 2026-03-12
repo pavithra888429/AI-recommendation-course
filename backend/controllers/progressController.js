@@ -31,6 +31,11 @@ const updateProgress = async (req, res) => {
        progress = new Progress({ user: req.user.id, course: courseId });
     }
 
+    // Ensure quizScores is initialized
+    if (!progress.quizScores) {
+      progress.quizScores = new Map();
+    }
+
     if (isModule) {
       if (!progress.completedModules.includes(lessonId)) {
         progress.completedModules.push(lessonId);
