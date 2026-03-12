@@ -12,6 +12,7 @@ import LearningPage from './pages/LearningPage';
 import QuizPage from './pages/QuizPage';
 import ProgressPage from './pages/ProgressPage';
 import EnrollmentPage from './pages/EnrollmentPage';
+import CertificatePage from './pages/CertificatePage';
 import './styles/global.css';
 
 const PrivateRoute = ({ children }) => {
@@ -50,6 +51,9 @@ function App() {
               } />
               <Route path="/progress" element={
                 <PrivateRoute><ProgressPage /></PrivateRoute>
+              } />
+              <Route path="/certificate/:id" element={
+                <PrivateRoute><CertificatePage /></PrivateRoute>
               } />
             </Routes>
           </main>

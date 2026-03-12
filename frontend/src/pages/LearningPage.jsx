@@ -132,6 +132,25 @@ const LearningPage = () => {
                   style={{ height: '100%', backgroundColor: 'var(--primary)' }} 
                 />
              </div>
+             <button
+               onClick={() => navigate(`/certificate/${course.id}`)}
+               style={{
+                 marginTop: '1.25rem',
+                 width: '100%',
+                 padding: '0.75rem',
+                 backgroundColor: 'var(--primary)',
+                 color: 'white',
+                 display: 'flex',
+                 alignItems: 'center',
+                 justifyContent: 'center',
+                 gap: '0.5rem',
+                 borderRadius: '8px',
+                 fontSize: '0.875rem',
+                 opacity: completionPercentage === 100 ? 1 : 0.7
+               }}
+             >
+               <Trophy size={16} /> {completionPercentage === 100 ? 'Claim Certificate' : 'Preview Certificate'}
+             </button>
           </div>
           <h3 style={{ marginBottom: '1.5rem' }}>Course Content</h3>
           {course.modules.map((module, mIdx) => (
