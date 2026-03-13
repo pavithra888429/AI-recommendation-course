@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import ProgressBar from '../components/ProgressBar';
 import { Sparkles, Trophy, BookOpen, ArrowRight } from 'lucide-react';
 
-const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
+const API_URL = 'http://localhost:5000/api';
 
 const Dashboard = () => {
   const { user, progress } = useUser();
@@ -18,7 +18,7 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const [recsRes, coursesRes] = await Promise.all([
-          getRecommendations(user?.interests || [], user?.level || 'Beginner'),
+          getRecommendations(user?.profile?.interests || [], user?.profile?.level || 'Beginner'),
           fetch(`${API_URL}/courses`)
         ]);
         

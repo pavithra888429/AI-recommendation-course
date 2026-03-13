@@ -1500,6 +1500,1008 @@ const coursesData = [
         }
       }
     ]
+  },
+  {
+    id: 10,
+    title: "Node.js Backend Development",
+    description: "Learn how to build scalable backend applications using Node.js, Express.js, REST APIs, authentication and database integration.",
+    category: "Backend Development",
+    level: "Intermediate",
+    instructor: "Michael Anderson",
+    duration: "55h",
+    rating: 4.7,
+    students: 11000,
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop",
+    tags: ["Node.js","Backend","Express","API Development"],
+    modules: [
+      {
+        id: "nd_m1",
+        title: "Introduction to Node.js",
+        lessons: [{
+          id: "l_nd_m1",
+          title: "Getting Started with Node.js",
+          content: "\nNode.js is a JavaScript runtime built on Chrome's V8 engine.\n\nIt allows developers to run JavaScript on the server side.\n\nKey advantages:\n\nFast execution\nEvent-driven architecture\nNon-blocking I/O\nLarge npm ecosystem\n\nNode.js is widely used for building scalable backend applications and APIs.\n",
+          example: "\nExample Node.js Program\n\nconsole.log(\"Hello from Node.js\")\n",
+          quizzes: [{
+            question: "What is Node.js mainly used for?",
+            options: ["Styling webpages","Server-side programming","Graphic design","Operating systems"],
+            answer: 1,
+            explanation: "Node.js allows JavaScript to run on the server side."
+          }]
+        }],
+        quiz: {
+          question: "What is Node.js mainly used for?",
+          options: ["Styling webpages","Server-side programming","Graphic design","Operating systems"],
+          answer: 1,
+          explanation: "Node.js allows JavaScript to run on the server side."
+        }
+      },
+      {
+        id: "nd_m2",
+        title: "Node.js Modules",
+        lessons: [{
+          id: "l_nd_m2",
+          title: "Using Built-in Modules",
+          content: "\nModules help organize code into reusable pieces.\n\nNode.js provides built-in modules such as:\n\nfs (File System)\nhttp\npath\nos\n\nDevelopers can also create custom modules.\n",
+          example: "\nExample\n\nconst os = require(\"os\")\n\nconsole.log(os.platform())\n",
+          quizzes: [{
+            question: "Which keyword imports modules in Node.js?",
+            options: ["import","require","use","include"],
+            answer: 1,
+            explanation: "require() is used to import modules in Node.js."
+          }]
+        }],
+        quiz: {
+          question: "Which keyword imports modules in Node.js?",
+          options: ["import","require","use","include"],
+          answer: 1,
+          explanation: "require() is used to import modules in Node.js."
+        }
+      },
+      {
+        id: "nd_m3",
+        title: "File System Module",
+        lessons: [{
+          id: "l_nd_m3",
+          title: "Working with Files",
+          content: "\nThe File System (fs) module allows Node.js to interact with files.\n\nCommon operations include:\n\nReading files\nWriting files\nDeleting files\nUpdating files\n",
+          example: "\nExample\n\nconst fs = require(\"fs\")\n\nfs.writeFileSync(\"test.txt\",\"Hello World\")\n",
+          quizzes: [{
+            question: "Which module works with files in Node.js?",
+            options: ["http","fs","url","path"],
+            answer: 1,
+            explanation: "The fs module is used for file operations."
+          }]
+        }],
+        quiz: {
+          question: "Which module works with files in Node.js?",
+          options: ["http","fs","url","path"],
+          answer: 1,
+          explanation: "The fs module is used for file operations."
+        }
+      },
+      {
+        id: "nd_m4",
+        title: "Creating an HTTP Server",
+        lessons: [{
+          id: "l_nd_m4",
+          title: "Building a Basic Server",
+          content: "\nNode.js can create web servers using the http module.\n\nThe server listens for requests and sends responses to clients.\n",
+          example: "\nExample\n\nconst http = require(\"http\")\n\nconst server = http.createServer((req,res)=>{\nres.write(\"Server running\")\nres.end()\n})\n\nserver.listen(3000)\n",
+          quizzes: [{
+            question: "Which module creates servers in Node.js?",
+            options: ["http","server","network","router"],
+            answer: 0,
+            explanation: "The http module is used to create web servers."
+          }]
+        }],
+        quiz: {
+          question: "Which module creates servers in Node.js?",
+          options: ["http","server","network","router"],
+          answer: 0,
+          explanation: "The http module is used to create web servers."
+        }
+      },
+      {
+        id: "nd_m5",
+        title: "Introduction to Express.js",
+        lessons: [{
+          id: "l_nd_m5",
+          title: "Getting Started with Express",
+          content: "\nExpress.js is a minimal and flexible Node.js web framework.\n\nIt simplifies server creation and routing.\n\nFeatures:\n\nRouting\nMiddleware\nRequest handling\nAPI building\n",
+          example: "\nExample Express Server\n\nconst express = require(\"express\")\nconst app = express()\n\napp.get(\"/\",(req,res)=>{\nres.send(\"Hello Express\")\n})\n\napp.listen(3000)\n",
+          quizzes: [{
+            question: "What is Express.js?",
+            options: ["Frontend framework","Node.js framework","Database","Operating system"],
+            answer: 1,
+            explanation: "Express.js is a framework used to build backend applications in Node.js."
+          }]
+        }],
+        quiz: {
+          question: "What is Express.js?",
+          options: ["Frontend framework","Node.js framework","Database","Operating system"],
+          answer: 1,
+          explanation: "Express.js is a framework used to build backend applications in Node.js."
+        }
+      },
+      {
+        id: "nd_m6",
+        title: "Routing in Express",
+        lessons: [{
+          id: "l_nd_m6",
+          title: "Handling HTTP Methods",
+          content: "\nRouting determines how an application responds to client requests.\n\nCommon HTTP methods:\n\nGET\nPOST\nPUT\nDELETE\n",
+          example: "\nExample\n\napp.get(\"/users\",(req,res)=>{\nres.send(\"List of users\")\n})\n",
+          quizzes: [{
+            question: "Which HTTP method retrieves data?",
+            options: ["GET","POST","DELETE","PATCH"],
+            answer: 0,
+            explanation: "GET is used to retrieve data from a server."
+          }]
+        }],
+        quiz: {
+          question: "Which HTTP method retrieves data?",
+          options: ["GET","POST","DELETE","PATCH"],
+          answer: 0,
+          explanation: "GET is used to retrieve data from a server."
+        }
+      },
+      {
+        id: "nd_m7",
+        title: "Middleware in Express",
+        lessons: [{
+          id: "l_nd_m7",
+          title: "Using Middleware Functions",
+          content: "\nMiddleware functions run between request and response.\n\nThey are used for:\n\nLogging\nAuthentication\nError handling\nData parsing\n",
+          example: "\nExample Middleware\n\napp.use((req,res,next)=>{\nconsole.log(\"Request received\")\nnext()\n})\n",
+          quizzes: [{
+            question: "What does middleware do?",
+            options: ["Stores data","Processes requests","Deletes files","Creates UI"],
+            answer: 1,
+            explanation: "Middleware processes requests before reaching the route handler."
+          }]
+        }],
+        quiz: {
+          question: "What does middleware do?",
+          options: ["Stores data","Processes requests","Deletes files","Creates UI"],
+          answer: 1,
+          explanation: "Middleware processes requests before reaching the route handler."
+        }
+      },
+      {
+        id: "nd_m8",
+        title: "Connecting to MongoDB",
+        lessons: [{
+          id: "l_nd_m8",
+          title: "Database Integration",
+          content: "\nBackend applications often store data in databases.\n\nMongoDB is a popular NoSQL database used with Node.js.\n\nDevelopers commonly use the mongoose library to interact with MongoDB.\n",
+          example: "\nExample\n\nconst mongoose = require(\"mongoose\")\n\nmongoose.connect(\"mongodb://localhost:27017/mydb\")\n",
+          quizzes: [{
+            question: "Which library is commonly used to connect Node.js with MongoDB?",
+            options: ["mongoose","react","redux","axios"],
+            answer: 0,
+            explanation: "Mongoose is commonly used for MongoDB interaction."
+          }]
+        }],
+        quiz: {
+          question: "Which library is commonly used to connect Node.js with MongoDB?",
+          options: ["mongoose","react","redux","axios"],
+          answer: 0,
+          explanation: "Mongoose is commonly used for MongoDB interaction."
+        }
+      },
+      {
+        id: "nd_m9",
+        title: "Authentication with JWT",
+        lessons: [{
+          id: "l_nd_m9",
+          title: "Securing APIs with JWT",
+          content: "\nAuthentication verifies the identity of users.\n\nJWT (JSON Web Token) is widely used for secure authentication.\n\nIt allows stateless authentication between client and server.\n",
+          example: "\nExample\n\nconst jwt = require(\"jsonwebtoken\")\n\nconst token = jwt.sign({userId:1},\"secretKey\")\n",
+          quizzes: [{
+            question: "What does JWT stand for?",
+            options: ["Java Web Token","JSON Web Token","JavaScript Web Token","Joint Web Token"],
+            answer: 1,
+            explanation: "JWT stands for JSON Web Token."
+          }]
+        }],
+        quiz: {
+          question: "What does JWT stand for?",
+          options: ["Java Web Token","JSON Web Token","JavaScript Web Token","Joint Web Token"],
+          answer: 1,
+          explanation: "JWT stands for JSON Web Token."
+        }
+      },
+      {
+        id: "nd_m10",
+        title: "Deploying a Node.js Application",
+        lessons: [{
+          id: "l_nd_m10",
+          title: "Going Live",
+          content: "\nAfter building an application, it must be deployed to a server.\n\nCommon deployment platforms:\n\nAWS\nRender\nHeroku\nDigitalOcean\n\nDeployment allows applications to be accessible online.\n",
+          example: "\nExample command\n\nnpm start\n",
+          quizzes: [{
+            question: "What is the purpose of deployment?",
+            options: ["Write code","Run application online","Delete files","Create UI"],
+            answer: 1,
+            explanation: "Deployment makes applications accessible on the internet."
+          }]
+        }],
+        quiz: {
+          question: "What is the purpose of deployment?",
+          options: ["Write code","Run application online","Delete files","Create UI"],
+          answer: 1,
+          explanation: "Deployment makes applications accessible on the internet."
+        }
+      }
+    ]
+  },
+  {
+    id: 11,
+    title: "MongoDB & NoSQL Databases",
+    description: "Learn MongoDB and NoSQL database concepts including document databases, CRUD operations, indexing, aggregation and performance optimization.",
+    category: "Database",
+    level: "Intermediate",
+    instructor: "David Thompson",
+    duration: "45h",
+    rating: 4.6,
+    students: 9500,
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&auto=format&fit=crop",
+    tags: ["MongoDB","NoSQL","Database","Backend"],
+    modules: [
+      {
+        id: "mg_m1",
+        title: "Introduction to Databases",
+        lessons: [{
+          id: "l_mg_m1",
+          title: "Understanding Databases",
+          content: "\nA database is a system used to store and manage data efficiently.\n\nTypes of databases include:\n\nRelational databases (SQL)\nNoSQL databases\n\nRelational databases use tables and rows, while NoSQL databases store data in flexible formats.\n\nExamples of relational databases include MySQL and PostgreSQL.\n",
+          example: "\nExample relational table\n\nUsers Table\n\nid | name | email\n1  | John | john@email.com\n",
+          quizzes: [{
+            question: "What is the main purpose of a database?",
+            options: ["Write code","Store data","Design UI","Send emails"],
+            answer: 1,
+            explanation: "Databases are used to store and manage data."
+          }]
+        }],
+        quiz: {
+          question: "What is the main purpose of a database?",
+          options: ["Write code","Store data","Design UI","Send emails"],
+          answer: 1,
+          explanation: "Databases are used to store and manage data."
+        }
+      },
+      {
+        id: "mg_m2",
+        title: "Introduction to NoSQL Databases",
+        lessons: [{
+          id: "l_mg_m2",
+          title: "NoSQL Concepts",
+          content: "\nNoSQL databases store data in formats other than tables.\n\nThey are designed for scalability and flexibility.\n\nCommon types of NoSQL databases:\n\nDocument databases\nKey-value stores\nColumn databases\nGraph databases\n\nMongoDB is one of the most popular document databases.\n",
+          example: "\nExample JSON document\n\n{\n\"name\":\"Alice\",\n\"age\":25,\n\"city\":\"London\"\n}\n",
+          quizzes: [{
+            question: "MongoDB belongs to which database type?",
+            options: ["Relational","Document","Graph","Column"],
+            answer: 1,
+            explanation: "MongoDB is a document-based NoSQL database."
+          }]
+        }],
+        quiz: {
+          question: "MongoDB belongs to which database type?",
+          options: ["Relational","Document","Graph","Column"],
+          answer: 1,
+          explanation: "MongoDB is a document-based NoSQL database."
+        }
+      },
+      {
+        id: "mg_m3",
+        title: "Installing MongoDB",
+        lessons: [{
+          id: "l_mg_m3",
+          title: "Setup & Installation",
+          content: "\nMongoDB can be installed locally or used through cloud services like MongoDB Atlas.\n\nDevelopers can connect MongoDB to applications using drivers or libraries.\n\nMongoDB Compass is a graphical interface for managing MongoDB databases.\n",
+          example: "\nExample connection command\n\nmongod\n",
+          quizzes: [{
+            question: "What is MongoDB Atlas?",
+            options: ["Database language","Cloud database service","Web framework","Programming language"],
+            answer: 1,
+            explanation: "MongoDB Atlas is a cloud database service for MongoDB."
+          }]
+        }],
+        quiz: {
+          question: "What is MongoDB Atlas?",
+          options: ["Database language","Cloud database service","Web framework","Programming language"],
+          answer: 1,
+          explanation: "MongoDB Atlas is a cloud database service for MongoDB."
+        }
+      },
+      {
+        id: "mg_m4",
+        title: "MongoDB Collections and Documents",
+        lessons: [{
+          id: "l_mg_m4",
+          title: "Collections vs Documents",
+          content: "\nMongoDB stores data in collections and documents.\n\nCollection is similar to tables in SQL.\nDocument is similar to rows but stored in JSON format.\n\nDocuments store data using key-value pairs.\n",
+          example: "\nExample document\n\n{\n\"name\":\"John\",\n\"email\":\"john@email.com\",\n\"age\":28\n}\n",
+          quizzes: [{
+            question: "What is a MongoDB document?",
+            options: ["Table","JSON-like record","Function","Index"],
+            answer: 1,
+            explanation: "Documents are JSON-like records stored in MongoDB."
+          }]
+        }],
+        quiz: {
+          question: "What is a MongoDB document?",
+          options: ["Table","JSON-like record","Function","Index"],
+          answer: 1,
+          explanation: "Documents are JSON-like records stored in MongoDB."
+        }
+      },
+      {
+        id: "mg_m5",
+        title: "CRUD Operations",
+        lessons: [{
+          id: "l_mg_m5",
+          title: "Create Read Update Delete",
+          content: "\nCRUD operations are the basic operations used to interact with databases.\n\nCreate – Insert data\nRead – Retrieve data\nUpdate – Modify data\nDelete – Remove data\n",
+          example: "\nExample Insert\n\ndb.users.insertOne({\nname:\"Alice\",\nage:25\n})\n",
+          quizzes: [{
+            question: "What does CRUD stand for?",
+            options: ["Create Read Update Delete","Copy Run Update Delete","Create Remove Upload Delete","Create Run Update Download"],
+            answer: 0,
+            explanation: "CRUD stands for Create, Read, Update and Delete."
+          }]
+        }],
+        quiz: {
+          question: "What does CRUD stand for?",
+          options: ["Create Read Update Delete","Copy Run Update Delete","Create Remove Upload Delete","Create Run Update Download"],
+          answer: 0,
+          explanation: "CRUD stands for Create, Read, Update and Delete."
+        }
+      },
+      {
+        id: "mg_m6",
+        title: "Querying Data",
+        lessons: [{
+          id: "l_mg_m6",
+          title: "Filtering with Queries",
+          content: "\nMongoDB provides powerful queries to filter documents.\n\nQueries help retrieve specific data based on conditions.\n\nOperators include:\n\n$eq\n$gt\n$lt\n$in\n",
+          example: "\nExample Query\n\ndb.users.find({age:{$gt:20}})\n",
+          quizzes: [{
+            question: "Which operator means 'greater than'?",
+            options: ["$eq","$gt","$lt","$in"],
+            answer: 1,
+            explanation: "$gt represents greater than."
+          }]
+        }],
+        quiz: {
+          question: "Which operator means 'greater than'?",
+          options: ["$eq","$gt","$lt","$in"],
+          answer: 1,
+          explanation: "$gt represents greater than."
+        }
+      },
+      {
+        id: "mg_m7",
+        title: "Indexes in MongoDB",
+        lessons: [{
+          id: "l_mg_m7",
+          title: "Improving Query Performance",
+          content: "\nIndexes improve database query performance.\n\nWithout indexes, MongoDB scans all documents.\n\nIndexes allow faster searching of data.\n",
+          example: "\nExample\n\ndb.users.createIndex({email:1})\n",
+          quizzes: [{
+            question: "What is the purpose of indexes?",
+            options: ["Store files","Improve query speed","Delete documents","Design UI"],
+            answer: 1,
+            explanation: "Indexes improve database query performance."
+          }]
+        }],
+        quiz: {
+          question: "What is the purpose of indexes?",
+          options: ["Store files","Improve query speed","Delete documents","Design UI"],
+          answer: 1,
+          explanation: "Indexes improve database query performance."
+        }
+      },
+      {
+        id: "mg_m8",
+        title: "Aggregation Framework",
+        lessons: [{
+          id: "l_mg_m8",
+          title: "Analyzing Data with Aggregation",
+          content: "\nAggregation is used to process and analyze data.\n\nIt allows grouping, filtering, and transforming data.\n\nCommon aggregation stages:\n\n$match\n$group\n$sort\n$project\n",
+          example: "\nExample\n\ndb.orders.aggregate([\n{$group:{_id:\"$status\",count:{$sum:1}}}\n])\n",
+          quizzes: [{
+            question: "Which stage groups data in aggregation?",
+            options: ["$group","$sort","$match","$index"],
+            answer: 0,
+            explanation: "$group groups documents based on fields."
+          }]
+        }],
+        quiz: {
+          question: "Which stage groups data in aggregation?",
+          options: ["$group","$sort","$match","$index"],
+          answer: 0,
+          explanation: "$group groups documents based on fields."
+        }
+      },
+      {
+        id: "mg_m9",
+        title: "Schema Design in MongoDB",
+        lessons: [{
+          id: "l_mg_m9",
+          title: "Designing Efficient Schemas",
+          content: "\nMongoDB is schema-flexible but proper design improves performance.\n\nCommon design approaches:\n\nEmbedded documents\nReferenced documents\n\nChoosing the right design helps scale applications.\n",
+          example: "\nExample Embedded Document\n\n{\n\"name\":\"Alice\",\n\"orders\":[\n{product:\"Laptop\",price:800}\n]\n}\n",
+          quizzes: [{
+            question: "What advantage does MongoDB schema provide?",
+            options: ["Rigid structure","Flexible data model","Limited storage","Slow queries"],
+            answer: 1,
+            explanation: "MongoDB provides a flexible schema design."
+          }]
+        }],
+        quiz: {
+          question: "What advantage does MongoDB schema provide?",
+          options: ["Rigid structure","Flexible data model","Limited storage","Slow queries"],
+          answer: 1,
+          explanation: "MongoDB provides a flexible schema design."
+        }
+      },
+      {
+        id: "mg_m10",
+        title: "Scaling MongoDB",
+        lessons: [{
+          id: "l_mg_m10",
+          title: "Sharding and Replication",
+          content: "\nMongoDB supports horizontal scaling using sharding.\n\nSharding distributes data across multiple servers.\n\nReplication ensures data availability by maintaining copies of data.\n",
+          example: "\nExample concept\n\nPrimary Node handles writes.\nSecondary Nodes replicate data.\n",
+          quizzes: [{
+            question: "What is MongoDB sharding used for?",
+            options: ["UI design","Scaling databases","Deleting data","Writing scripts"],
+            answer: 1,
+            explanation: "Sharding distributes data across multiple servers to scale databases."
+          }]
+        }],
+        quiz: {
+          question: "What is MongoDB sharding used for?",
+          options: ["UI design","Scaling databases","Deleting data","Writing scripts"],
+          answer: 1,
+          explanation: "Sharding distributes data across multiple servers to scale databases."
+        }
+      }
+    ]
+  },
+  {
+    id: 12,
+    title: "DevOps Fundamentals",
+    description: "Learn DevOps principles including CI/CD pipelines, automation, containerization, monitoring and infrastructure management.",
+    category: "DevOps",
+    level: "Intermediate",
+    instructor: "Andrew Collins",
+    duration: "60h",
+    rating: 4.7,
+    students: 10200,
+    image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&auto=format&fit=crop",
+    tags: ["DevOps","CI/CD","Docker","Automation"],
+    modules: [
+      {
+        id: "dv_m1",
+        title: "Introduction to DevOps",
+        lessons: [{
+          id: "l_dv_m1",
+          title: "What is DevOps?",
+          content: "\nDevOps is a set of practices that combines software development (Dev) and IT operations (Ops).\n\nIt aims to shorten the development lifecycle while delivering high-quality software.\n\nKey goals of DevOps:\n\nFaster development\nContinuous delivery\nImproved collaboration\nAutomation of processes\n",
+          example: "\nExample DevOps workflow\n\nDeveloper → Code → Build → Test → Deploy → Monitor\n",
+          quizzes: [{
+            question: "What does DevOps combine?",
+            options: ["Development and Operations","Design and Marketing","Testing and UI","Security and Networking"],
+            answer: 0,
+            explanation: "DevOps combines development and operations teams."
+          }]
+        }],
+        quiz: {
+          question: "What does DevOps combine?",
+          options: ["Development and Operations","Design and Marketing","Testing and UI","Security and Networking"],
+          answer: 0,
+          explanation: "DevOps combines development and operations teams."
+        }
+      },
+      {
+        id: "dv_m2",
+        title: "Version Control with Git",
+        lessons: [{
+          id: "l_dv_m2",
+          title: "Using Git for Version Control",
+          content: "\nVersion control systems track changes in code.\n\nGit is the most widely used version control system.\n\nDevelopers use Git to:\n\nTrack changes\nCollaborate with teams\nManage project versions\n",
+          example: "\nExample Git commands\n\ngit init\ngit add .\ngit commit -m \"Initial commit\"\n",
+          quizzes: [{
+            question: "Which tool is commonly used for version control?",
+            options: ["Git","Docker","Jenkins","MongoDB"],
+            answer: 0,
+            explanation: "Git is widely used for version control."
+          }]
+        }],
+        quiz: {
+          question: "Which tool is commonly used for version control?",
+          options: ["Git","Docker","Jenkins","MongoDB"],
+          answer: 0,
+          explanation: "Git is widely used for version control."
+        }
+      },
+      {
+        id: "dv_m3",
+        title: "Continuous Integration (CI)",
+        lessons: [{
+          id: "l_dv_m3",
+          title: "Automating Builds and Tests",
+          content: "\nContinuous Integration means automatically building and testing code whenever developers push changes.\n\nCI helps detect errors early in development.\n\nBenefits include:\n\nFaster feedback\nImproved code quality\nAutomated testing\n",
+          example: "\nExample CI process\n\nDeveloper pushes code → CI server builds project → Automated tests run\n",
+          quizzes: [{
+            question: "What is the main purpose of CI?",
+            options: ["Design UI","Automatically test code","Delete code","Store files"],
+            answer: 1,
+            explanation: "CI automatically builds and tests code changes."
+          }]
+        }],
+        quiz: {
+          question: "What is the main purpose of CI?",
+          options: ["Design UI","Automatically test code","Delete code","Store files"],
+          answer: 1,
+          explanation: "CI automatically builds and tests code changes."
+        }
+      },
+      {
+        id: "dv_m4",
+        title: "Continuous Delivery and Deployment",
+        lessons: [{
+          id: "l_dv_m4",
+          title: "Releasing Software Continuously",
+          content: "\nContinuous Delivery ensures software is always ready to deploy.\n\nContinuous Deployment automatically releases updates to production.\n\nThis enables faster software updates.\n",
+          example: "\nExample pipeline\n\nCode → Build → Test → Deploy to staging → Deploy to production\n",
+          quizzes: [{
+            question: "What does Continuous Deployment do?",
+            options: ["Write code","Automatically release updates","Design UI","Create databases"],
+            answer: 1,
+            explanation: "Continuous deployment automatically deploys updates."
+          }]
+        }],
+        quiz: {
+          question: "What does Continuous Deployment do?",
+          options: ["Write code","Automatically release updates","Design UI","Create databases"],
+          answer: 1,
+          explanation: "Continuous deployment automatically deploys updates."
+        }
+      },
+      {
+        id: "dv_m5",
+        title: "Jenkins for CI/CD",
+        lessons: [{
+          id: "l_dv_m5",
+          title: "Automating Pipelines with Jenkins",
+          content: "\nJenkins is a popular automation server used to build CI/CD pipelines.\n\nIt automates tasks such as:\n\nBuilding applications\nRunning tests\nDeploying applications\n",
+          example: "\nExample Jenkins pipeline steps\n\nBuild → Test → Deploy\n",
+          quizzes: [{
+            question: "What is Jenkins mainly used for?",
+            options: ["Database storage","CI/CD automation","UI design","Networking"],
+            answer: 1,
+            explanation: "Jenkins automates CI/CD pipelines."
+          }]
+        }],
+        quiz: {
+          question: "What is Jenkins mainly used for?",
+          options: ["Database storage","CI/CD automation","UI design","Networking"],
+          answer: 1,
+          explanation: "Jenkins automates CI/CD pipelines."
+        }
+      },
+      {
+        id: "dv_m6",
+        title: "Containerization with Docker",
+        lessons: [{
+          id: "l_dv_m6",
+          title: "Packaging Apps with Docker",
+          content: "\nDocker allows developers to package applications into containers.\n\nContainers include the application and all its dependencies.\n\nBenefits:\n\nConsistency across environments\nEasy deployment\nIsolation of applications\n",
+          example: "\nExample Docker command\n\ndocker build -t myapp .\ndocker run -p 3000:3000 myapp\n",
+          quizzes: [{
+            question: "What is Docker mainly used for?",
+            options: ["UI design","Containerization","Database queries","Testing"],
+            answer: 1,
+            explanation: "Docker is used to create and run containers."
+          }]
+        }],
+        quiz: {
+          question: "What is Docker mainly used for?",
+          options: ["UI design","Containerization","Database queries","Testing"],
+          answer: 1,
+          explanation: "Docker is used to create and run containers."
+        }
+      },
+      {
+        id: "dv_m7",
+        title: "Container Orchestration with Kubernetes",
+        lessons: [{
+          id: "l_dv_m7",
+          title: "Managing Containers at Scale",
+          content: "\nKubernetes manages containers at scale.\n\nIt helps deploy, scale, and manage containerized applications.\n\nFeatures include:\n\nAuto scaling\nLoad balancing\nSelf-healing containers\n",
+          example: "\nExample Kubernetes command\n\nkubectl get pods\n",
+          quizzes: [{
+            question: "What is Kubernetes used for?",
+            options: ["Managing containers","Writing code","Designing UI","Running databases"],
+            answer: 0,
+            explanation: "Kubernetes manages containerized applications."
+          }]
+        }],
+        quiz: {
+          question: "What is Kubernetes used for?",
+          options: ["Managing containers","Writing code","Designing UI","Running databases"],
+          answer: 0,
+          explanation: "Kubernetes manages containerized applications."
+        }
+      },
+      {
+        id: "dv_m8",
+        title: "Infrastructure as Code",
+        lessons: [{
+          id: "l_dv_m8",
+          title: "Managing Infrastructure with Code",
+          content: "\nInfrastructure as Code (IaC) allows infrastructure to be managed using code.\n\nTools used include:\n\nTerraform\nAWS CloudFormation\nAnsible\n\nThis makes infrastructure reproducible and automated.\n",
+          example: "\nExample concept\n\nDefine server configuration in code → Deploy infrastructure automatically\n",
+          quizzes: [{
+            question: "What does IaC stand for?",
+            options: ["Infrastructure as Code","Internet and Cloud","Integrated App Control","Internal Access Control"],
+            answer: 0,
+            explanation: "IaC means Infrastructure as Code."
+          }]
+        }],
+        quiz: {
+          question: "What does IaC stand for?",
+          options: ["Infrastructure as Code","Internet and Cloud","Integrated App Control","Internal Access Control"],
+          answer: 0,
+          explanation: "IaC means Infrastructure as Code."
+        }
+      },
+      {
+        id: "dv_m9",
+        title: "Monitoring and Logging",
+        lessons: [{
+          id: "l_dv_m9",
+          title: "Tracking System Health",
+          content: "\nMonitoring helps track system performance and detect issues.\n\nLogging records events happening inside applications.\n\nPopular tools:\n\nPrometheus\nGrafana\nELK Stack\n",
+          example: "\nExample monitoring metrics\n\nCPU usage\nMemory usage\nApplication errors\n",
+          quizzes: [{
+            question: "What is the purpose of monitoring?",
+            options: ["Design UI","Track system performance","Write code","Delete logs"],
+            answer: 1,
+            explanation: "Monitoring helps track application and system performance."
+          }]
+        }],
+        quiz: {
+          question: "What is the purpose of monitoring?",
+          options: ["Design UI","Track system performance","Write code","Delete logs"],
+          answer: 1,
+          explanation: "Monitoring helps track application and system performance."
+        }
+      },
+      {
+        id: "dv_m10",
+        title: "DevOps Best Practices",
+        lessons: [{
+          id: "l_dv_m10",
+          title: "Principles for Success",
+          content: "\nDevOps encourages collaboration, automation and continuous improvement.\n\nBest practices include:\n\nAutomated testing\nContinuous monitoring\nInfrastructure automation\nSmall frequent releases\n",
+          example: "\nExample workflow\n\nCode → Test → Build → Deploy → Monitor → Improve\n",
+          quizzes: [{
+            question: "What is a key DevOps practice?",
+            options: ["Manual deployments","Frequent automated releases","Avoid automation","Slow updates"],
+            answer: 1,
+            explanation: "DevOps promotes frequent automated releases."
+          }]
+        }],
+        quiz: {
+          question: "What is a key DevOps practice?",
+          options: ["Manual deployments","Frequent automated releases","Avoid automation","Slow updates"],
+          answer: 1,
+          explanation: "DevOps promotes frequent automated releases."
+        }
+      }
+    ]
+  },
+  {
+    id: 13,
+    title: "System Design for Software Engineers",
+    description: "Learn how to design scalable and reliable systems using concepts like load balancing, caching, databases, microservices and distributed architecture.",
+    category: "Software Architecture",
+    level: "Intermediate",
+    instructor: "Robert Wilson",
+    duration: "50h",
+    rating: 4.8,
+    students: 13500,
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop",
+    tags: ["System Design","Architecture","Scalability","Distributed Systems"],
+    modules: [
+      {
+        id: "sd_m1",
+        title: "Introduction to System Design",
+        lessons: [{
+          id: "l_sd_m1",
+          title: "What is System Design?",
+          content: "\nSystem design is the process of defining the architecture, components, and interactions of a software system.\n\nIt helps engineers build applications that are scalable, reliable and maintainable.\n\nSystem design focuses on:\n\nScalability\nAvailability\nPerformance\nReliability\n",
+          example: "\nExample system\n\nUser → Web Server → Application Server → Database\n",
+          quizzes: [{
+            question: "What is the goal of system design?",
+            options: ["Design UI","Build scalable systems","Write CSS","Create graphics"],
+            answer: 1,
+            explanation: "System design focuses on building scalable and reliable systems."
+          }]
+        }],
+        quiz: {
+          question: "What is the goal of system design?",
+          options: ["Design UI","Build scalable systems","Write CSS","Create graphics"],
+          answer: 1,
+          explanation: "System design focuses on building scalable and reliable systems."
+        }
+      },
+      {
+        id: "sd_m2",
+        title: "Client Server Architecture",
+        lessons: [{
+          id: "l_sd_m2",
+          title: "How Clients and Servers Communicate",
+          content: "\nClient-server architecture is a model where clients request services and servers provide them.\n\nExamples:\n\nWeb browsers request data from servers\nMobile apps communicate with APIs\n",
+          example: "\nExample architecture\n\nClient (Browser)\n      ↓\nApplication Server\n      ↓\nDatabase\n",
+          quizzes: [{
+            question: "In client-server architecture who sends the request?",
+            options: ["Server","Database","Client","Router"],
+            answer: 2,
+            explanation: "The client sends requests to the server."
+          }]
+        }],
+        quiz: {
+          question: "In client-server architecture who sends the request?",
+          options: ["Server","Database","Client","Router"],
+          answer: 2,
+          explanation: "The client sends requests to the server."
+        }
+      },
+      {
+        id: "sd_m3",
+        title: "Load Balancing",
+        lessons: [{
+          id: "l_sd_m3",
+          title: "Distributing Traffic Across Servers",
+          content: "\nLoad balancing distributes incoming traffic across multiple servers.\n\nBenefits include:\n\nImproved performance\nHigh availability\nFault tolerance\n\nCommon load balancers include NGINX and AWS ELB.\n",
+          example: "\nExample flow\n\nUser Requests\n      ↓\nLoad Balancer\n  ↙      ↘\nServer1  Server2\n",
+          quizzes: [{
+            question: "What is the purpose of load balancing?",
+            options: ["Store data","Distribute traffic","Create UI","Delete requests"],
+            answer: 1,
+            explanation: "Load balancing distributes traffic across servers."
+          }]
+        }],
+        quiz: {
+          question: "What is the purpose of load balancing?",
+          options: ["Store data","Distribute traffic","Create UI","Delete requests"],
+          answer: 1,
+          explanation: "Load balancing distributes traffic across servers."
+        }
+      },
+      {
+        id: "sd_m4",
+        title: "Caching",
+        lessons: [{
+          id: "l_sd_m4",
+          title: "Speeding Up with Cache",
+          content: "\nCaching stores frequently accessed data in memory.\n\nThis reduces database load and improves performance.\n\nCommon caching tools:\n\nRedis\nMemcached\n",
+          example: "\nExample\n\nUser request → Check cache → If data exists return quickly\n",
+          quizzes: [{
+            question: "What is the purpose of caching?",
+            options: ["Increase latency","Speed up data access","Delete data","Create backups"],
+            answer: 1,
+            explanation: "Caching speeds up data access by storing frequently used data."
+          }]
+        }],
+        quiz: {
+          question: "What is the purpose of caching?",
+          options: ["Increase latency","Speed up data access","Delete data","Create backups"],
+          answer: 1,
+          explanation: "Caching speeds up data access by storing frequently used data."
+        }
+      },
+      {
+        id: "sd_m5",
+        title: "Database Design",
+        lessons: [{
+          id: "l_sd_m5",
+          title: "Structuring Data Efficiently",
+          content: "\nDatabase design involves organizing data efficiently.\n\nKey concepts include:\n\nNormalization\nIndexing\nData modeling\n\nChoosing the right database improves system performance.\n",
+          example: "\nExample schema\n\nUsers\nid | name | email\n",
+          quizzes: [{
+            question: "What improves database query performance?",
+            options: ["Indexes","Images","Stylesheets","Fonts"],
+            answer: 0,
+            explanation: "Indexes improve query performance."
+          }]
+        }],
+        quiz: {
+          question: "What improves database query performance?",
+          options: ["Indexes","Images","Stylesheets","Fonts"],
+          answer: 0,
+          explanation: "Indexes improve query performance."
+        }
+      },
+      {
+        id: "sd_m6",
+        title: "Microservices Architecture",
+        lessons: [{
+          id: "l_sd_m6",
+          title: "Breaking Apps into Services",
+          content: "\nMicroservices architecture divides an application into smaller independent services.\n\nEach service handles a specific functionality.\n\nBenefits include:\n\nIndependent scaling\nFaster development\nBetter fault isolation\n",
+          example: "\nExample services\n\nAuth Service\nUser Service\nNotification Service\nPayment Service\n",
+          quizzes: [{
+            question: "What is a key advantage of microservices?",
+            options: ["Large single codebase","Independent services","Slow scaling","Manual deployment"],
+            answer: 1,
+            explanation: "Microservices allow independent services to scale."
+          }]
+        }],
+        quiz: {
+          question: "What is a key advantage of microservices?",
+          options: ["Large single codebase","Independent services","Slow scaling","Manual deployment"],
+          answer: 1,
+          explanation: "Microservices allow independent services to scale."
+        }
+      },
+      {
+        id: "sd_m7",
+        title: "Message Queues",
+        lessons: [{
+          id: "l_sd_m7",
+          title: "Async Communication with Queues",
+          content: "\nMessage queues allow services to communicate asynchronously.\n\nThey help handle high traffic and background tasks.\n\nPopular tools include:\n\nRabbitMQ\nKafka\nAmazon SQS\n",
+          example: "\nExample flow\n\nService A → Message Queue → Service B\n",
+          quizzes: [{
+            question: "Why are message queues used?",
+            options: ["Design UI","Handle asynchronous communication","Store images","Compile code"],
+            answer: 1,
+            explanation: "Message queues allow asynchronous communication between services."
+          }]
+        }],
+        quiz: {
+          question: "Why are message queues used?",
+          options: ["Design UI","Handle asynchronous communication","Store images","Compile code"],
+          answer: 1,
+          explanation: "Message queues allow asynchronous communication between services."
+        }
+      },
+      {
+        id: "sd_m8",
+        title: "API Design",
+        lessons: [{
+          id: "l_sd_m8",
+          title: "Designing Good APIs",
+          content: "\nAPIs allow systems to communicate with each other.\n\nGood API design ensures:\n\nClear endpoints\nProper authentication\nEfficient data transfer\n",
+          example: "\nExample API endpoint\n\nGET /api/users\n",
+          quizzes: [{
+            question: "What does API stand for?",
+            options: ["Application Programming Interface","Advanced Programming Input","App Performance Index","Application Program Internet"],
+            answer: 0,
+            explanation: "API stands for Application Programming Interface."
+          }]
+        }],
+        quiz: {
+          question: "What does API stand for?",
+          options: ["Application Programming Interface","Advanced Programming Input","App Performance Index","Application Program Internet"],
+          answer: 0,
+          explanation: "API stands for Application Programming Interface."
+        }
+      },
+      {
+        id: "sd_m9",
+        title: "Scalability Strategies",
+        lessons: [{
+          id: "l_sd_m9",
+          title: "Vertical vs Horizontal Scaling",
+          content: "\nScalability allows systems to handle increased traffic.\n\nTwo types of scaling:\n\nVertical scaling (increase server power)\nHorizontal scaling (add more servers)\n",
+          example: "\nExample\n\n1 server → add more servers → handle more users\n",
+          quizzes: [{
+            question: "What is horizontal scaling?",
+            options: ["Increasing RAM","Adding more servers","Deleting data","Changing UI"],
+            answer: 1,
+            explanation: "Horizontal scaling adds more servers to handle traffic."
+          }]
+        }],
+        quiz: {
+          question: "What is horizontal scaling?",
+          options: ["Increasing RAM","Adding more servers","Deleting data","Changing UI"],
+          answer: 1,
+          explanation: "Horizontal scaling adds more servers to handle traffic."
+        }
+      },
+      {
+        id: "sd_m10",
+        title: "Designing Large Scale Systems",
+        lessons: [{
+          id: "l_sd_m10",
+          title: "Architecture for Millions of Users",
+          content: "\nLarge-scale systems must support millions of users.\n\nEngineers use:\n\nCaching\nLoad balancing\nDistributed databases\nMicroservices\n\nThese techniques ensure reliability and performance.\n",
+          example: "\nExample large-scale architecture\n\nUsers\n ↓\nCDN\n ↓\nLoad Balancer\n ↓\nApplication Servers\n ↓\nDatabase Cluster\n",
+          quizzes: [{
+            question: "What helps systems handle millions of users?",
+            options: ["Scalability","Images","CSS","Fonts"],
+            answer: 0,
+            explanation: "Scalability allows systems to handle large numbers of users."
+          }]
+        }],
+        quiz: {
+          question: "What helps systems handle millions of users?",
+          options: ["Scalability","Images","CSS","Fonts"],
+          answer: 0,
+          explanation: "Scalability allows systems to handle large numbers of users."
+        }
+      }
+    ]
+  },
+  {
+    id: 14,
+    title: "Cybersecurity Essentials",
+    description: "Learn the fundamentals of cybersecurity, including network security, cryptography, and risk management.",
+    category: "Cybersecurity",
+    level: "Beginner",
+    instructor: "Michael Chen",
+    duration: "40h",
+    rating: 4.9,
+    students: 8200,
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop",
+    tags: ["Cybersecurity", "Network Security", "Ethical Hacking"],
+    modules: [
+      {
+        id: "m1",
+        title: "Introduction to Cybersecurity",
+        lessons: [{
+          id: "l_cyber_m1",
+          title: "The Security Landscape",
+          content: "\nCybersecurity is the practice of protecting systems, networks, and programs from digital attacks.\n\nKey pillars:\nConfidentiality\nIntegrity\nAvailability\n",
+          example: "\nExample: Using 2FA to protect an account.\n",
+          quizzes: [{
+            question: "What is the 'CIA' triad in cybersecurity?",
+            options: ["Coding, Image, AI", "Confidentiality, Integrity, Availability", "Cloud, Internet, Access", "Cyber, Information, Attack"],
+            answer: 1,
+            explanation: "Confidentiality, Integrity, and Availability are the three pillars of security."
+          }]
+        }]
+      }
+    ]
+  },
+  {
+    id: 15,
+    title: "Cloud Computing Mastery (AWS)",
+    description: "Master cloud architecture and services using Amazon Web Services (AWS).",
+    category: "Cloud Computing",
+    level: "Intermediate",
+    instructor: "Sarah Jenkins",
+    duration: "55h",
+    rating: 4.7,
+    students: 9500,
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop",
+    tags: ["Cloud", "AWS", "Infrastructure"],
+    modules: [
+      {
+        id: "m1",
+        title: "Cloud Fundamentals",
+        lessons: [{
+          id: "l_cloud_m1",
+          title: "What is Cloud?",
+          content: "\nCloud computing is the on-demand delivery of IT resources over the internet with pay-as-you-go pricing.\n",
+          example: "\nExample: Instead of buying servers, you rent them from AWS.\n",
+          quizzes: [{
+            question: "Which of these is a cloud provider?",
+            options: ["Windows 95", "AWS", "Photoshop", "Excel"],
+            answer: 1,
+            explanation: "Amazon Web Services (AWS) is a major cloud platform."
+          }]
+        }]
+      }
+    ]
   }
 ];
 

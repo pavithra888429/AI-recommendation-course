@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 const UserContext = createContext();
-const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
+const API_URL = 'http://localhost:5000/api';
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
@@ -89,7 +89,7 @@ export const UserProvider = ({ children }) => {
   const completeOnboarding = async (profile) => {
     const res = await fetch(`${API_URL}/auth/onboarding`, {
       method: 'POST',
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
         'x-auth-token': token
       },

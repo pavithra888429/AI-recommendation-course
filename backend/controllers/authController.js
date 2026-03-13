@@ -11,7 +11,7 @@ const register = async (req, res) => {
     await user.save();
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-    res.status(201).json({ token, user: { id: user._id, name, email, onboardingComplete: user.onboardingComplete } });
+    res.status(201).json({ token, user: { id: user._id, name, email, onboardingComplete: user.onboardingComplete, profile: user.profile } });
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
@@ -27,7 +27,7 @@ const login = async (req, res) => {
     if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-    res.json({ token, user: { id: user._id, name: user.name, email, onboardingComplete: user.onboardingComplete } });
+    res.json({ token, user: { id: user._id, name: user.name, email, onboardingComplete: user.onboardingComplete, profile: user.profile } });
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
@@ -43,7 +43,7 @@ const completeOnboarding = async (req, res) => {
     user.onboardingComplete = true;
     await user.save();
 
-    res.json({ message: 'Onboarding completed', user: { id: user._id, name: user.name, email: user.email, onboardingComplete: true } });
+    res.json({ message: 'Onboarding completed', user: { id: user._id, name: user.name, email: user.email, onboardingComplete: true, profile: user.profile } });
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
