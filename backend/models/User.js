@@ -10,7 +10,9 @@ const UserSchema = new mongoose.Schema({
   profile: {
     interest: String,
     experience: String,
-    goal: String
+    goal: String,
+    interests: [String],
+    level: String
   },
   createdAt: { type: Date, default: Date.now }
 });

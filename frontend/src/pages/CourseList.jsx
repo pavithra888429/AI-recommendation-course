@@ -3,7 +3,7 @@ import { useUser } from '../context/UserContext';
 import CourseCard from '../components/CourseCard';
 import { Search, Filter } from 'lucide-react';
 
-const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
+const API_URL = 'http://localhost:5000/api';
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
@@ -37,7 +37,21 @@ const CourseList = () => {
     return matchesSearch && matchesCategory;
   });
 
+  // Save meaningful searches to localStorage for AI recommendations
+  useEffect(() => {
+    if (searchTerm.trim().length < 2) return;
+    const timeout = setTimeout(() => {
+      try {
+        const prev = JSON.parse(localStorage.getItem('searchHistory') || '[]');
+        const updated = [searchTerm.trim(), ...prev.filter(s => s !== searchTerm.trim())].slice(0, 10);
+        localStorage.setItem('searchHistory', JSON.stringify(updated));
+      } catch (_) {}
+    }, 800); // debounce 800ms
+    return () => clearTimeout(timeout);
+  }, [searchTerm]);
+
   if (loading) return <div className="container" style={{ padding: '4rem', textAlign: 'center' }}>Loading courses...</div>;
+
 
   return (
     <div className="container">
