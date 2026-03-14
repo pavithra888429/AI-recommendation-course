@@ -40,7 +40,7 @@ export const getRecommendations = async (interests, level) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ interests, level, searchHistory, courses }),
-        signal: AbortSignal.timeout(8000) // 8s timeout
+        signal: AbortSignal.timeout(20000) // 20s timeout
       });
 
       if (aiRes.ok) {

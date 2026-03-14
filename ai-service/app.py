@@ -36,19 +36,19 @@ def recommend():
 
         print(f"Generating recommendations for: {interests}")
 
-        # Build a simplified course list for the prompt
+        # Build a simplified course list for the prompt - limit to 15 courses for efficiency
         course_summaries = []
-        for c in courses:
+        for c in courses[:15]:
             try:
-                course_summaries.append({
-                    "id": c.get("id"),
-                    "title": c.get("title", "Untitled Course"),
-                    "category": c.get("category", "General"),
-                    "level": c.get("level", "Beginner"),
-                    "description": str(c.get("description", ""))[:100]
-                })
-            except Exception as e:
-                print(f"Skipping malformed course: {e}")
+                cid = c.get("id")
+                if cid is not None:
+                    course_summaries.append({
+                        "id": cid,
+                        "title": c.get("title", "Untitled Course")[:50],
+                        "category": c.get("category", "General"),
+                        "level": c.get("level", "Beginner")
+                    })
+            except Exception:
                 continue
 
         prompt = f"""
@@ -60,7 +60,7 @@ def recommend():
         {json.dumps(course_summaries)}
         
         Task: Return a JSON array of the top 5 course IDs matching the user.
-        Return ONLY the array, e.g., [1, 14, 2]. No text.
+        Return ONLY the array, e.g., [1, 14, 2].
         """
 
         url = "https://api.groq.com/openai/v1/chat/completions"
@@ -69,7 +69,7 @@ def recommend():
             "model": "llama-3.3-70b-versatile",
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": 100,
-            "temperature": 0.5
+            "temperature": 0.3
         }
 
         headers = {
@@ -77,66 +77,38 @@ def recommend():
             "Authorization": f"Bearer {GROQ_API_KEY}"
         }
 
-        response = requests.post(url, json=payload, headers=headers, timeout=10)
+        response = requests.post(url, json=payload, headers=headers, timeout=15)
         
         if response.status_code != 200:
-            print(f"API Error {response.status_code}: {response.text}")
-            return jsonify([]), 200
+            return jsonify([])
 
         res_data = response.json()
-        
-        if "choices" not in res_data or not res_data["choices"]:
-            print("No choices in response")
-            return jsonify([]), 200
-
         raw_text = res_data["choices"][0]["message"]["content"].strip()
-        print(f"Raw response: {raw_text}")
 
         # Improved cleanup for JSON
         import re
         try:
-            # Find something that looks like a JSON array [ ... ]
             match = re.search(r'\[.*\]', raw_text, re.DOTALL)
             if match:
                 raw_text = match.group(0)
-            else:
-                # Fallback to basic cleanup if regex fails
-                if "```" in raw_text:
-                    raw_text = raw_text.split("```")[1]
-                    if raw_text.startswith("json"):
-                        raw_text = raw_text[4:]
-                raw_text = raw_text.strip()
-            
             recommended_ids = json.loads(raw_text)
-        except Exception as parse_err:
-            print(f"JSON Parse Error: {parse_err}")
-            return jsonify([]), 200
+        except Exception:
+            return jsonify([])
         
-        # Validate that we got an array
         if not isinstance(recommended_ids, list):
-            print(f"Invalid response format: not a list")
-            return jsonify([]), 200
+            return jsonify([])
         
-        # Safe integer conversion
-        parsed_ids = []
-        for x in recommended_ids:
-            try:
-                parsed_ids.append(int(x))
-            except (ValueError, TypeError):
-                continue
-        
-        print(f"Parsed IDs: {parsed_ids}")
-
-        # Filter and order
+        # Safe ID matching (handle both string and int IDs)
         recommended_courses = []
-        # Create a map for quick lookup and preservation of order
-        course_map = {int(c.get("id")): c for c in courses if c.get("id") is not None}
+        str_ids = [str(x) for x in recommended_ids]
         
-        for cid in parsed_ids:
-            if cid in course_map:
-                recommended_courses.append(course_map[cid])
+        for cid_str in str_ids:
+            for course in courses:
+                if str(course.get("id")) == cid_str:
+                    recommended_courses.append(course)
+                    break
 
-        return jsonify(recommended_courses)
+        return jsonify(recommended_courses[:5])
 
     except Exception as e:
         import traceback
