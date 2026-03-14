@@ -10,9 +10,12 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
-# Using gemini-2.0-flash as it's confirmed available
-MODEL_NAME = "gemini-2.0-flash" 
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+
+@app.route("/", methods=["GET"])
+def root():
+    return jsonify({"service": "AI Recommendation Service", "status": "running", "endpoints": ["/health", "/recommend"]})
+
 
 @app.route("/health", methods=["GET"])
 def health():
@@ -56,25 +59,33 @@ def recommend():
         Return ONLY the array, e.g., [1, 14, 2]. No text.
         """
 
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL_NAME}:generateContent?key={GEMINI_API_KEY}"
+        url = "https://api.groq.com/openai/v1/chat/completions"
         
         payload = {
-            "contents": [{"parts": [{"text": prompt}]}]
+            "model": "llama-3.3-70b-versatile",
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": 100,
+            "temperature": 0.5
         }
 
-        response = requests.post(url, json=payload, timeout=10)
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {GROQ_API_KEY}"
+        }
+
+        response = requests.post(url, json=payload, headers=headers, timeout=10)
         
         if response.status_code != 200:
             print(f"API Error {response.status_code}: {response.text}")
-            return jsonify([]), 500
+            return jsonify([]), 200  # Return empty instead of 500
 
         res_data = response.json()
         
-        if "candidates" not in res_data or not res_data["candidates"]:
-            print("No candidates in response")
+        if "choices" not in res_data or not res_data["choices"]:
+            print("No choices in response")
             return jsonify([]), 200
 
-        raw_text = res_data["candidates"][0]["content"]["parts"][0]["text"].strip()
+        raw_text = res_data["choices"][0]["message"]["content"].strip()
         print(f"Raw response: {raw_text}")
 
         # Basic cleanup for JSON
@@ -85,6 +96,13 @@ def recommend():
         raw_text = raw_text.strip()
 
         recommended_ids = json.loads(raw_text)
+        
+        # Validate that we got an array of numbers
+        if not isinstance(recommended_ids, list):
+            print(f"Invalid response format: not a list")
+            return jsonify([]), 200
+        
+        recommended_ids = [int(x) for x in recommended_ids if isinstance(x, (int, float)) or (isinstance(x, str) and x.isdigit())]
         print(f"Parsed IDs: {recommended_ids}")
 
         # Filter and order
@@ -97,8 +115,10 @@ def recommend():
         return jsonify(recommended_courses)
 
     except Exception as e:
-        print(f"Error: {e}")
-        return jsonify([]), 500
+        import traceback
+        print(f"Error in recommend: {e}")
+        print(traceback.format_exc())
+        return jsonify([]), 200  # Return empty instead of 500
 
 
 if __name__ == "__main__":
