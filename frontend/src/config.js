@@ -1,6 +1,6 @@
 export const API_URL = window.location.hostname === 'localhost' 
   ? 'http://localhost:5000/api' 
-  : 'https://ai-recommendation-course.onrender.com/api';
+  : 'https://course-platform-api-mjpn.onrender.com/api';
 
 export const AI_SERVICE_URL = window.location.hostname === 'localhost' 
   ? 'http://localhost:5001' 
