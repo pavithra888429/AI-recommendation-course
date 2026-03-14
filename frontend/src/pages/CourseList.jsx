@@ -3,7 +3,7 @@ import { useUser } from '../context/UserContext';
 import CourseCard from '../components/CourseCard';
 import { Search, Filter } from 'lucide-react';
 
-const API_URL = 'http://localhost:5000/api';
+import { API_URL } from '../config';
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);

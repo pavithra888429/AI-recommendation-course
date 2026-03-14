@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { PlayCircle, CheckCircle, ChevronDown, Award, Globe, Clock, MessageCircle, ArrowRight } from 'lucide-react';
 
-const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
+import { API_URL } from '../config';
 
 const CourseDetails = () => {
   const { id } = useParams();

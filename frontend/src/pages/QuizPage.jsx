@@ -4,7 +4,7 @@ import { useUser } from '../context/UserContext';
 import QuizCard from '../components/QuizCard';
 import { Trophy, ArrowLeft, ArrowRight } from 'lucide-react';
 
-const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
+import { API_URL } from '../config';
 
 const QuizPage = () => {
   const { courseId, moduleId } = useParams();

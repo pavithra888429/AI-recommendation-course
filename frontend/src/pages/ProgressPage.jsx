@@ -3,7 +3,7 @@ import { useUser } from '../context/UserContext';
 import ProgressBar from '../components/ProgressBar';
 import { Trophy, CheckCircle, Book } from 'lucide-react';
 
-const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
+import { API_URL } from '../config';
 
 const ProgressPage = () => {
   const { progress, loading: userLoading } = useUser();

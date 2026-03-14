@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import ProgressBar from '../components/ProgressBar';
 import { Sparkles, Trophy, BookOpen, ArrowRight } from 'lucide-react';
 
-const API_URL = 'http://localhost:5000/api';
+import { API_URL } from '../config';
 
 const Dashboard = () => {
   const { user, progress } = useUser();

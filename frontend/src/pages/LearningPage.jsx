@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ProgressBar from '../components/ProgressBar';
 import LessonQuiz from '../components/LessonQuiz';
 
-const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
+import { API_URL } from '../config';
 
 const LearningPage = () => {
   const { id } = useParams();

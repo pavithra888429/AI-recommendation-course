@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { Award, ShieldCheck, Printer, ChevronLeft, Calendar, User, BookOpen } from 'lucide-react';
 
-const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
+import { API_URL } from '../config';
 
 const CertificatePage = () => {
   const { id } = useParams();

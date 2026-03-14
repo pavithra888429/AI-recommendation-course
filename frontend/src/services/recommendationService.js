@@ -1,5 +1,4 @@
-const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
-const AI_SERVICE_URL = 'http://localhost:5001';
+import { API_URL, AI_SERVICE_URL } from '../config';
 
 // Fallback: simple keyword + level matching (used when AI service is unavailable)
 const keywordFallback = (courses, interests, level) => {
