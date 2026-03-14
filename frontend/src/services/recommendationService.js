@@ -1,4 +1,28 @@
 const API_URL = 'https://course-platform-api-mjpn.onrender.com/api';
+const AI_SERVICE_URL = 'http://localhost:5001';
+
+// Fallback: simple keyword + level matching (used when AI service is unavailable)
+const keywordFallback = (courses, interests, level) => {
+  if (!Array.isArray(courses)) return [];
+  
+  let recs = courses.filter(course => {
+    if (!course) return false;
+    const title = (course.title || "").toLowerCase();
+    const category = (course.category || "").toLowerCase();
+    const courseLevel = (course.level || "").toLowerCase();
+    const targetLevel = (level || "Beginner").toLowerCase();
+
+    const categoryMatch = interests.some(interest =>
+      category.includes(interest.toLowerCase()) ||
+      title.includes(interest.toLowerCase())
+    );
+    const levelMatch = courseLevel === targetLevel;
+    return categoryMatch || levelMatch;
+  });
+  
+  if (recs.length === 0) return courses.slice(0, 3);
+  return recs.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+};
 
 export const getRecommendations = async (interests, level) => {
   try {
