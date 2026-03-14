@@ -71,7 +71,9 @@ export const UserProvider = ({ children }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password })
     });
+    console.log('Registration response status:', res.status);
     const data = await res.json();
+    console.log('Registration response data:', data);
     if (res.ok) {
       setToken(data.token);
       setUser(data.user);

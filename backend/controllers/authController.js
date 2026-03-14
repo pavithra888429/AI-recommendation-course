@@ -2,9 +2,14 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
 const register = async (req, res) => {
-  console.log('Registration attempt received:', req.body.email);
+  console.log('Registration attempt received:', req.body?.email || 'EMPTY BODY');
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password } = req.body || {};
+    
+    if (!name || !email || !password) {
+      console.log('Validation failed: Missing fields');
+      return res.status(400).json({ message: 'Please provide all fields' });
+    }
     
     console.log('Checking for existing user...', email);
     let user = await User.findOne({ email });
